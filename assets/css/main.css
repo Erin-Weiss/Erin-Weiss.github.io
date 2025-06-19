@@ -4543,10 +4543,29 @@ input, select, textarea {
 
 		}
 /* New gist stuff */
-.render-viewer {
-	height: 2525vh !important;
-  }
 
+/* New test gist stuff */
+/* .render-viewer {
+	height: 2380vh !important; safari
+	height: 2625vh !important; chrome
+  } */
+
+/* New test gist stuff */
+.render-viewer {
+	height: 24250px !important;
+  } 
+
+  @media (max-width: 768px) { /* Adjust for tablets and mobile devices */
+	.render-viewer {
+        height: 3000vh !important;
+    }
+}
+
+  @media (max-width: 480px) { /* Extra small screens (phones) */
+	.render-viewer {
+        height: 3300vh !important;
+    }
+}
 /* Nav Panel */
 
 	#navPanelToggle {
