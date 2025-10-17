@@ -6,19 +6,19 @@ Welcome to my personal portfolio repository! This GitHub repository showcases th
 
 ## 🔗 Live Demo
 
-Check out the live version of my portfolio at [Your Portfolio URL](https://your-portfolio-url.com)
+Check out the live version of my portfolio at [Portfolio URL](https://erin-weiss.github.io/index.html)
 
 ---
 
 ## 🚀 About Me
 
-I'm a Data Scientist with a passion for AI, machine learning, and building models. I enjoy solving complex problems and building projects that make a difference. I also like being creative and making aesthetically pleasing projects when I can. 
+I'm a Data Scientist with a passion for AI, machine learning, and building models. I enjoy solving complex problems and building projects that make a difference. I also like being creative and making aesthetically pleasing projects when I can.
 
 In this repository, you'll find some of the projects I've worked on, highlighting my skills in:
 
-- Data analysis (Python, Pandas, SQL, R, TensorFlow and Keras, Reinforcement learning, Gurobi, Alteryx)
+- Data analysis (Python, Pandas, SQL, R, Artificial Intelligence (AI), Reinforcement learning, Data Visualization, Tableau, Jupyter, NumPy, Matplotlib)
 - DevOps and CI/CD (Git, GitHub, Bash, Shell)
-- Frontend development (HTML/CSS, some JavaScript)
+- Frontend development (HTML/CSS, Streamlit, some JavaScript)
 - Creative Softwares (Figma, Linearity Curve Vector Art, Sketchbook)
 
 ---
@@ -27,29 +27,33 @@ In this repository, you'll find some of the projects I've worked on, highlightin
 
 Here are some of the main technologies I've worked with:
 
-- **Data Science**: Python, Pandas, NumPy, Scikit-Learn, Jupyter Notebook, Gurobi, R, TensorFlow and Keras, Tableau
-- **Databases**: MySQL, PostgreSQL, Alteryx, Hadoop, Spark/ Apache Spark, Google Cloud Dataproc
-- **DevOps & CI/CD**: Git, GitHub, Bash, Shell
-- **Frontend**: HTML, CSS, JavaScript
+- **Data Science**: Artificial Intelligence (AI), Computer Vision, Convolutional Neural Networks (CNN), Data Analytics, Data Mining, Data Modeling, Data Visualization, Deep Learning, Gurobi, Jupyter Notebook, Machine Learning, Matplotlib, Natural Language Processing (NLP), NumPy, Optimization, Pandas, PCA, Predictive Analytics, Predictive Modeling, PySpark, Python, R, Recommender Systems, Scikit-Learn, Seaborn, Statistical Data Analysis, Statistical Modeling, Tableau, TensorFlow and Keras, Time Series Analysis
+- **Databases**: Alteryx, Data Warehousing, Extract, Transform, Load (ETL), Google Analytics, Google Cloud Dataproc, Hadoop, Microsoft SQL Server, MySQL, PostgreSQL, Spark/Apache Spark, SQL, SQL Server Reporting Services (SSRS)
+- **DevOps & CI/CD**: Bash, Git, GitHub, LaTeX, Markdown, Quarto, Shell
+- **Frontend**: CSS, Excel pivot tables, HTML, JavaScript, Streamlit
 
 ---
 
 ## 📂 Project Highlights
 
-Here are a few of the projects you'll find in this repository:
+Here are a few of the projects you'll find in this portfolio:
 
-1. **[Project Name 1]**
+1. **Reinforcement Learning Project**
 
-   - **Description**: A brief overview of the project and its purpose.
-   - **Technologies Used**: [Tech Stack]
-   - **Live Demo**: [Demo Link]
-   - **Code**: [Project Folder](https://github.com/username/repo-name/tree/main/project1)
-2. **[Project Name 2]**
+   - **Description**: This project explores reinforcement learning through hands-on implementation of algorithms in a Jupyter notebook. The goal is to demonstrate how an agent can learn to make decisions over time in an environment using reward signals. Concepts such as exploration vs. exploitation, policy optimization, and reward shaping are demonstrated via code and visualizations.
+   - **Technologies Used**: Python, NumPy, Pandas, Matplotlib, Jupyter Notebook, Hyperparameter Tuning
+   - **Live Demo**: [Demo Link](https://colab.research.google.com/drive/1AdGevMypjOROYdtjgmwzJGFNswwUC5mm?usp=sharing)
+   - **Code**: [Project Folder](https://github.com/Erin-Weiss/reinforcement-learning)
+   - **Portfolio Page**: [Link](https://github.com/Erin-Weiss/reinforcement-learning)
+     `<br>`
+2. **R Real Estate Project**
 
-   - **Description**: Describe the project's functionality and impact.
-   - **Technologies Used**: [Tech Stack]
-   - **Live Demo**: [Demo Link]
-   - **Code**: [Project Folder](https://github.com/username/repo-name/tree/main/project2)
+   - **Description**: An analysis of U.S. housing trends from 2016–2022 using Realtor.com data. Explores how factors such as region, season, square footage, and market activity influence median listing prices. Includes visualizations and a multiple linear regression model explaining ~95% of price variation.
+   - **Technologies Used**: tidyverse, ggplot2, lubridate, summarytools, DT, ggpubr, HydroTSM, descr, SemTools
+   - **Live Demo**: [Demo Link](https://erin-weiss.github.io/R-Real-Estate-Project/)
+   - **Code**: [Project Folder](https://github.com/Erin-Weiss/R-Real-Estate-Project)
+   - **Portfolio Page**: [Link](https://erin-weiss.github.io/articles/Real-Estate.html)
+     `<br>`
 3. **[Project Name 3]**
 
    - **Description**: An insight into the project’s features.
