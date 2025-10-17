@@ -40,12 +40,11 @@ Here are a few of the projects you'll find in this portfolio:
 
 1. **Reinforcement Learning Project**
 
-   - **Description**: This project explores reinforcement learning through hands-on implementation of algorithms in a Jupyter notebook. The goal is to demonstrate how an agent can learn to make decisions over time in an environment using reward signals. Concepts such as exploration vs. exploitation, policy optimization, and reward shaping are demonstrated via code and visualizations.
-   - **Technologies Used**: Python, NumPy, Pandas, Matplotlib, Jupyter Notebook, Hyperparameter Tuning
+   - **Description**: This project explores reinforcement learning through hands-on implementation of algorithms in a Jupyter notebook. The goal is to demonstrate how an agent can learn to make decisions over time in an environment using reward signals. Concepts such as exploration vs. exploitation, policy optimization,  Hyperparameter Tuning, and reward shaping are demonstrated via code and visualizations.
+   - **Technologies Used**: Python, NumPy, Pandas, Matplotlib, Jupyter Notebook
    - **Live Demo**: [Demo Link](https://colab.research.google.com/drive/1AdGevMypjOROYdtjgmwzJGFNswwUC5mm?usp=sharing)
    - **Code**: [Project Folder](https://github.com/Erin-Weiss/reinforcement-learning)
    - **Portfolio Page**: [Link](https://github.com/Erin-Weiss/reinforcement-learning)
-     
 2. **R Real Estate Project**
 
    - **Description**: An analysis of U.S. housing trends from 2016–2022 using Realtor.com data. Explores how factors such as region, season, square footage, and market activity influence median listing prices. Includes visualizations and a multiple linear regression model explaining ~95% of price variation.
@@ -53,7 +52,6 @@ Here are a few of the projects you'll find in this portfolio:
    - **Live Demo**: [Demo Link](https://erin-weiss.github.io/R-Real-Estate-Project/)
    - **Code**: [Project Folder](https://github.com/Erin-Weiss/R-Real-Estate-Project)
    - **Portfolio Page**: [Link](https://erin-weiss.github.io/articles/Real-Estate.html)
-     
 3. **[Project Name 3]**
 
    - **Description**: An insight into the project’s features.
