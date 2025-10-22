@@ -14,164 +14,200 @@
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 		<script src="jquery.js"></script> 
 		<style>
-
 			.tab-content {
 				min-height: 80vh;
 				height: auto;
-				margin-left : -10%;
+				margin-left: -10%;
 				margin-right: -10%;
-				} 
+			}
+
+			/* ---- Tableau Viz Styling ---- */
+			.viz-card {
+				width: 100%;
+				max-width: 1600px;
+				margin: 2rem auto;
+				border-radius: 22px;
+				box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+				transition: box-shadow 0.3s ease, transform 0.25s ease;
+				background: transparent;
+			}
+
+			.viz-card:hover {
+				box-shadow: 0 26px 66px rgba(0, 0, 0, 0.22);
+				transform: translateY(-2px);
+			}
+
+			.viz-inner {
+				border-radius: 18px;
+				overflow: hidden;
+				background: linear-gradient(135deg, #e0eafc, #cfdef3);
+			}
+
+			.viz-iframe {
+				display: block;
+				width: 100%;
+				height: clamp(850px, 90vh, 1400px);
+				border: none;
+			}
+
+			@media (max-width: 1000px) {
+				.viz-card { max-width: 95vw; }
+				.viz-iframe { height: clamp(1000px, 95vh, 1500px); }
+			}
 		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Header -->
-					<header id="header">
-						<a href="../index.html" class="logo">Erin Weiss</a>
-					</header>
+			<!-- Header -->
+			<header id="header">
+				<a href="../index.html" class="logo">Erin Weiss</a>
+			</header>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="../index.html">Projects</a></li>
-							<li><a href="../about.html">About Me</a></li>
-							<li><a href="../education.html">Education</a></li>
-							<li><a href="../work.html">Work Experience</a></li>
+			<!-- Nav -->
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="../index.html">Projects</a></li>
+					<li><a href="../about.html">About Me</a></li>
+					<li><a href="../education.html">Education</a></li>
+					<li><a href="../work.html">Work Experience</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/erinweiss3/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+					<li><a href="https://github.com/Erin-Weiss" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+
+				<!-- Post -->
+				<section class="post">
+					<header class="major">
+						<h2 class="work">Tableau Project</h2>
+					</header>	
+
+					<div>
+						<!-- Tableau Dashboard Embed -->
+						<div class="tab-content">
+							<div class="viz-card">
+								<div class="viz-inner">
+									<iframe
+										class="viz-iframe"
+										src="https://public.tableau.com/views/Food-DC-Final/MichelinStarsinDCZoomIn?:showVizHome=no&:embed=true&:toolbar=bottom"
+										allowfullscreen
+									></iframe>
+								</div>
+							</div>
+						</div>
+
+						<br>
+						<h2>Analysis & Commentary</h2>
+						<p>This dashboard delves deep into the Michelin-starred restaurant scene in Washington, D.C., providing a comprehensive overview of these establishments within the broader Michelin ecosystem. By combining geographic, categorical, and numeric data, these visual representations offer a holistic perspective on the Michelin-starred restaurants in Washington, D.C. The data reveals that D.C. is rapidly emerging as a culinary hotspot. While New York and Chicago continue to dominate the Michelin recognition rankings, D.C.’s impressive 54 starred venues and diverse culinary offerings showcase its growing appeal to a discerning audience of fine-dining enthusiasts.</p>
+
+						<p>Additionally, I’d like to highlight a few extra details about this Tableau dashboard that might not be immediately apparent. Firstly, the dataset used for this dashboard was obtained towards the end of 2023. Therefore, it’s possible that the data presented here may differ slightly from the current numbers. While it’s theoretically feasible to refresh the data monthly and automate the necessary data-cleaning process periodically, this falls outside this project’s scope.</p>
+
+						<p>Furthermore, I want to emphasize that this dashboard is fully interactive. Hovering over the circles on the map provides additional information about each restaurant, including details such as accessibility for wheelchairs, website information, and more. The dashboard also offers numerous filtering options to refine the data further. Lastly, clicking on the toggle at the top of the page displays a zoomed-out map of the DMV area, highlighting the one restaurant located in the suburbs.</p>
+
+						<p>Lastly, I’d like to mention that the dashboard background was custom-designed using Figma and glassmorphism techniques. The toggle switch used in the dashboard was also created using Figma. </p>
+
+						<p>Here’s a breakdown of the insights and commentary based on the visuals:</p>
+
+						<ol>
+							<li style="font-weight:bold">Michelin Restaurants Count per Country</li>
+								<ul>
+									<li>The first chart on the upper left displays the number of Michelin-starred restaurants across countries. France, Japan, and Italy lead the list, indicating a higher concentration of these establishments in these regions compared to the USA, which ranks fourth. This disparity suggests that the Michelin Guide has a stronger presence in Europe and Japan, where high-end dining culture is deeply ingrained. While the USA is a significant player in the culinary scene, it has fewer Michelin-rated restaurants relative to these other countries. This could be attributed to regional or cultural dining preferences that may differ from those in Europe and Japan.</li>
+								</ul>
+							<li style="font-weight:bold">Star Breakdown by City</li>
+								<ul>
+									<li>The middle chart on the left presents the distribution of Michelin stars across prominent U.S. cities, including New York, Chicago, Washington, San Francisco, and Los Angeles. Notably, New York City boasts the highest number of Michelin stars, followed by Chicago and Washington. New York’s impressive Michelin star count could be attributed to its dense population, high tourism rates, and its reputation as a cosmopolitan hub for luxury dining. Washington’s position reflects its growing reputation as a food destination, although it lags behind New York and Chicago regarding the overall number of Michelin-rated venues.</li>
+								</ul>
+							<li style="font-weight:bold">Top Cuisine in Top 3 Cities</li>
+								<ul>
+									<li>The lower left bar chart categorizes the most popular cuisines among Michelin-starred restaurants in New York, Chicago, and Washington. Contemporary, Japanese, Sushi, and Mexican cuisines are prominent across these cities. The focus on Contemporary and Japanese/Sushi cuisine reflects a trend toward both innovation in dining and the growing appreciation of Japanese culinary techniques. Mexican cuisine’s presence, especially in Chicago, speaks to the city’s diverse population and a move towards recognizing diverse food cultures within fine dining.</li>
+								</ul>
+							<li style="font-weight:bold">Geographic Distribution of Michelin-Starred Restaurants in D.C.</li>
+								<ul>
+									<li>The map on the right displays Michelin-starred restaurants across Washington, D.C., categorized by star level (shown in different colors) and price (indicated by circle size). Most restaurants are concentrated around the central city area, with a few scattered around Arlington and one in the suburbs—shown when zoomed out. This geographic clustering suggests a concentration of high-end dining options in popular or high-traffic D.C. areas, likely targeting tourists and local patrons. The limited reach into suburban areas implies a focus on maintaining a central presence rather than expanding Michelin-quality dining throughout the metro area.</li>
+								</ul>
+							<li style="font-weight:bold">Overall Count of Michelin-Starred Restaurants in D.C.</li>
+								<ul>
+									<li>Washington, D.C., boasts a total of 54 Michelin-rated restaurants, as recorded in 2023. This figure provides context for the city’s fine dining scene compared to other major cities. Although D.C. may have fewer Michelin-starred establishments than cities like New York, its significant number for its size underscores the development of a robust culinary scene.</li>
+								</ul>
+							<li style="font-weight:bold">Definition of Michelin Stars</li>
+								<ul>
+									<li>The bottom right panel delves into the Michelin stars and their significance, ranging from one star (worth a stop) to three stars (worth a special journey). This section underscores the exclusivity and prestige of the Michelin rating, showcasing the guide’s unwavering dedication to recognizing exceptional culinary experiences. Each star level’s description gives viewers insights into the rigor and distinction associated with Michelin ratings, clearly explaining why achieving a Michelin star holds immense significance for chefs and restaurants alike.</li>
+								</ul>
+						</ol>
+
+						<br>
+						<a href="javascript:history.back()">Back to Previous Page</a>
+					</div>
+				</section>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<section>
+					<form method="POST" action="https://formspree.io/f/xdoqnqpe">
+						<div class="fields">
+							<div class="field">
+								<label for="name">Name</label>
+								<input type="text" name="name" id="name" />
+							</div>
+							<div class="field">
+								<label for="email">Email</label>
+								<input type="text" name="email" id="email" />
+							</div>
+							<div class="field">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" rows="3"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" /></li>
 						</ul>
-						<ul class="icons">
+					</form>
+				</section>
+				<section class="split contact">
+					<section class="alt">
+						<h3>Location</h3>
+						<p>D.C. Area<br /></p>
+					</section>
+					<section>
+						<h3>Phone</h3>
+						<p><a href="tel:3072202006">(307) 220-2006</a></p>
+					</section>
+					<section>
+						<h3>Email</h3>
+						<p><a href="mailto:erin.michele.weiss@gmail.com">erin.michele.weiss@gmail.com</a></p>
+					</section>
+					<section>
+						<h3>Social</h3>
+						<ul class="icons alt">
 							<li><a href="https://www.linkedin.com/in/erinweiss3/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
 							<li><a href="https://github.com/Erin-Weiss" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 						</ul>
-					</nav>
+					</section>
+				</section>
+			</footer>
 
-				<!-- Main -->
-					<div id="main">
-						
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<h2 class="work">Tableau Project</h2>
-								</header>	
-								<div>
-									<div class="tab-content">
-										<script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
-
-										<tableau-viz id="tableauViz"       
-											src='https://public.tableau.com/views/Food-DC-Final/MichelinStarsinDCZoomIn'      
-											toolbar="bottom" hide-tabs>
-										</tableau-viz>
-									</div>
-									<br>
-									<h2>Analysis & Commentary</h2>
-									<p>This dashboard delves deep into the Michelin-starred restaurant scene in Washington, D.C., providing a comprehensive overview of these establishments within the broader Michelin ecosystem. By combining geographic, categorical, and numeric data, these visual representations offer a holistic perspective on the Michelin-starred restaurants in Washington, D.C. The data reveals that D.C. is rapidly emerging as a culinary hotspot. While New York and Chicago continue to dominate the Michelin recognition rankings, D.C.’s impressive 54 starred venues and diverse culinary offerings showcase its growing appeal to a discerning audience of fine-dining enthusiasts.</p>
-
-									<p>Additionally, I’d like to highlight a few extra details about this Tableau dashboard that might not be immediately apparent. Firstly, the dataset used for this dashboard was obtained towards the end of 2023. Therefore, it’s possible that the data presented here may differ slightly from the current numbers. While it’s theoretically feasible to refresh the data monthly and automate the necessary data-cleaning process periodically, this falls outside this project’s scope.</p>
-
-									<p>Furthermore, I want to emphasize that this dashboard is fully interactive. Hovering over the circles on the map provides additional information about each restaurant, including details such as accessibility for wheelchairs, website information, and more. The dashboard also offers numerous filtering options to refine the data further. Lastly, clicking on the toggle at the top of the page displays a zoomed-out map of the DMV area, highlighting the one restaurant located in the suburbs.</p>
-
-									<p>Lastly, I’d like to mention that the dashboard background was custom-designed using Figma and glassmorphism techniques. The toggle switch used in the dashboard was also created using Figma. </p>
-
-									<p>Here’s a breakdown of the insights and commentary based on the visuals:</p>
-
-									<ol>
-										<li style="font-weight:bold">Michelin Restaurants Count per Country</li>
-											<ul>
-												<li>The first chart on the upper left displays the number of Michelin-starred restaurants across countries. France, Japan, and Italy lead the list, indicating a higher concentration of these establishments in these regions compared to the USA, which ranks fourth. This disparity suggests that the Michelin Guide has a stronger presence in Europe and Japan, where high-end dining culture is deeply ingrained. While the USA is a significant player in the culinary scene, it has fewer Michelin-rated restaurants relative to these other countries. This could be attributed to regional or cultural dining preferences that may differ from those in Europe and Japan.</li>
-											</ul>
-										<li style="font-weight:bold">Star Breakdown by City</li>
-											<ul>
-												<li>The middle chart on the left presents the distribution of Michelin stars across prominent U.S. cities, including New York, Chicago, Washington, San Francisco, and Los Angeles. Notably, New York City boasts the highest number of Michelin stars, followed by Chicago and Washington. New York’s impressive Michelin star count could be attributed to its dense population, high tourism rates, and its reputation as a cosmopolitan hub for luxury dining. Washington’s position reflects its growing reputation as a food destination, although it lags behind New York and Chicago regarding the overall number of Michelin-rated venues.</li>
-											</ul>
-										<li style="font-weight:bold">Top Cuisine in Top 3 Cities</li>
-											<ul>
-												<li>The lower left bar chart categorizes the most popular cuisines among Michelin-starred restaurants in New York, Chicago, and Washington. Contemporary, Japanese, Sushi, and Mexican cuisines are prominent across these cities. The focus on Contemporary and Japanese/Sushi cuisine reflects a trend toward both innovation in dining and the growing appreciation of Japanese culinary techniques. Mexican cuisine’s presence, especially in Chicago, speaks to the city’s diverse population and a move towards recognizing diverse food cultures within fine dining.</li>
-											</ul>
-										<li style="font-weight:bold">Geographic Distribution of Michelin-Starred Restaurants in D.C.</li>
-											<ul>
-												<li>The map on the right displays Michelin-starred restaurants across Washington, D.C., categorized by star level (shown in different colors) and price (indicated by circle size). Most restaurants are concentrated around the central city area, with a few scattered around Arlington and one in the suburbs—shown when zoomed out. This geographic clustering suggests a concentration of high-end dining options in popular or high-traffic D.C. areas, likely targeting tourists and local patrons. The limited reach into suburban areas implies a focus on maintaining a central presence rather than expanding Michelin-quality dining throughout the metro area.</li>
-											</ul>
-										<li style="font-weight:bold">Overall Count of Michelin-Starred Restaurants in D.C.</li>
-											<ul>
-												<li>Washington, D.C., boasts a total of 54 Michelin-rated restaurants, as recorded in 2023. This figure provides context for the city’s fine dining scene compared to other major cities. Although D.C. may have fewer Michelin-starred establishments than cities like New York, its significant number for its size underscores the development of a robust culinary scene.</li>
-											</ul>
-										<li style="font-weight:bold">Definition of Michelin Stars</li>
-											<ul>
-												<li>The bottom right panel delves into the Michelin stars and their significance, ranging from one star (worth a stop) to three stars (worth a special journey). This section underscores the exclusivity and prestige of the Michelin rating, showcasing the guide’s unwavering dedication to recognizing exceptional culinary experiences. Each star level’s description gives viewers insights into the rigor and distinction associated with Michelin ratings, clearly explaining why achieving a Michelin star holds immense significance for chefs and restaurants alike.</li>
-											</ul>
-									</ol>
-
-									<br>
-									<a href="javascript:history.back()">Back to Previous Page</a>
-								</div>
-							</section>
-
-					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="POST" action="https://formspree.io/f/xdoqnqpe">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>D.C. Area<br />
-								</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="tel:3072202006">(307) 220-2006</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href=mailto:“erin.michele.weiss@gmail.com”>erin.michele.weiss@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/erinweiss3/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-									<li><a href="https://github.com/Erin-Weiss" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Erin Weiss</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
-
+			<!-- Copyright -->
+			<div id="copyright">
+				<ul><li>&copy; Erin Weiss</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
 			</div>
+		</div>
 
 		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/jquery.scrollex.min.js"></script>
-			<script src="../assets/js/jquery.scrolly.min.js"></script>
-			<script src="../assets/js/browser.min.js"></script>
-			<script src="../assets/js/breakpoints.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/jquery.scrollex.min.js"></script>
+		<script src="../assets/js/jquery.scrolly.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
 
 	</body>
 </html>
