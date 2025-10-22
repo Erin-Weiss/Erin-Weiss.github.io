@@ -71,10 +71,4 @@ I love connecting with people who share a passion for technology and innovation!
 
 ---
 
-## 📜 License
-
-This repository and all projects within it are licensed under the MIT License. See the [LICENSE](LICENSE.txt) file for more details.
-
----
-
 Thank you for visiting my portfolio! I hope you find something that inspires you. 😊
