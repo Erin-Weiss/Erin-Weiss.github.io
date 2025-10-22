@@ -52,12 +52,13 @@ Here are a few of the projects you'll find in this portfolio:
    - **Live Demo**: [Demo Link](https://erin-weiss.github.io/R-Real-Estate-Project/)
    - **Code**: [Project Folder](https://github.com/Erin-Weiss/R-Real-Estate-Project)
    - **Portfolio Page**: [Link](https://erin-weiss.github.io/articles/Real-Estate.html)
-3. **[Project Name 3]**
+3. **Michelin Stars in Washington, D.C.**
 
-   - **Description**: An insight into the project’s features.
-   - **Technologies Used**: [Tech Stack]
-   - **Live Demo**: [Demo Link]
-   - **Code**: [Project Folder](https://github.com/username/repo-name/tree/main/project3)
+   - **Description**: An interactive Tableau dashboard that explores the Michelin-starred restaurant landscape in Washington, D.C. Using a dataset collected in late 2023, the project analyzes how D.C. compares to other global culinary hubs and visualizes trends across cuisines, restaurant locations, and Michelin ratings. The dashboard features an interactive map with hover-based restaurant details, filters for exploring categories and pricing, and a zoom toggle for viewing the broader DMV area. The background and interface elements were custom-designed in Figma using glassmorphism techniques to create a modern, cohesive aesthetic.
+   - **Technologies Used**: Tableau, Figma, HTML/CSS (for embedding and styling), Data Visualization Design, Interactive Dashboards
+   - **Live Demo**: [Demo Link](https://erin-weiss.github.io/tableau-DC-food-dashboard/)
+   - **Code**: [Project Folder](https://github.com/Erin-Weiss/tableau-DC-food-dashboard)
+   - **Portfolio Page**: [Link](https://erin-weiss.github.io/articles/Tableau-1.html)
 
 ---
 
