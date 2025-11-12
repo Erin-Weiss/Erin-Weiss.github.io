@@ -1,122 +1,233 @@
 <!DOCTYPE HTML>
 <!--
-	Portfolio created by Erin Weiss
-	Originally used template from html5up.net
-	Template is free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Portfolio created by Erin Weiss
+  Originally used template from html5up.net
+  Template is free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Projects</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="icon" type="image/png" href="/favicon.png">
-		<link rel="stylesheet" href="../assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+  <head>
+    <meta charset="utf-8" />
+    <title>Projects · Reinforcement Learning Project – Erin Weiss</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Explore Erin Weiss’s Reinforcement Learning Project — featuring a hands-on coding demo embedded from a Colab export." />
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="../index.html" class="logo">Erin Weiss</a>
-					</header>
+    <style>
+      .demo-wrapper {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="../index.html">Projects</a></li>
-							<li><a href="../about.html">About Me</a></li>
-							<li><a href="../education.html">Education</a></li>
-							<li><a href="../work.html">Work Experience</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/erinweiss3/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/Erin-Weiss" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+      .demo-container {
+        display: block;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        isolation: isolate;        
+        will-change: transform;    
+        transform: translateZ(0);  
+      }
 
-				<!-- Main -->
-					<div id="main">
-						
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<h2 class="work">Reinforcement Learning Project</h2>
-								</header>	
-								<!-- Note-- if want to change viewing of gist it is .render-viewer in css -->
-								<div>
-									<script src="https://gist.github.com/Erin-Weiss/d45bfcc50d56f9593742e6faed8485fc.js"></script>
-									<br>
-									<a href="javascript:history.back()">Back to Previous Page</a>
-								</div>
-							</section>
+      #rl-demo {
+        width: 100%;
+        border: none;
+        display: block;
+        transition: none !important;
+        will-change: height;
+        transform: translateZ(0);
+      }
 
-					</div>
+      .back-link {
+        margin-top: 1rem;
+        display: inline-block;
+      }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="POST" action="https://formspree.io/f/xdoqnqpe">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>D.C. Area<br />
-								</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="tel:3072202006">(307) 220-2006</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href=mailto:“erin.michele.weiss@gmail.com”>erin.michele.weiss@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/erinweiss3/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-									<li><a href="https://github.com/Erin-Weiss" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+      .post header.major h1,
+      .post header.major h2 {
+        margin-bottom: 0.25rem;
+      }
+    </style>
+  </head>
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Erin Weiss</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo" aria-label="Go to home">Erin Weiss</a>
+      </header>
 
-			</div>
+      <!-- Nav -->
+      <nav id="nav" aria-label="Primary">
+        <ul class="links">
+          <li class="active"><a href="../index.html" aria-current="page">Projects</a></li>
+          <li><a href="../about.html">About Me</a></li>
+          <li><a href="../education.html">Education</a></li>
+          <li><a href="../work.html">Work Experience</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a href="https://www.linkedin.com/in/erinweiss3/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="icon brands fa-linkedin">
+               <span class="label">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Erin-Weiss"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="icon brands fa-github">
+               <span class="label">GitHub</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/jquery.scrollex.min.js"></script>
-			<script src="../assets/js/jquery.scrolly.min.js"></script>
-			<script src="../assets/js/browser.min.js"></script>
-			<script src="../assets/js/breakpoints.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <h1 class="work">Reinforcement Learning Project</h1>
+          </header>
 
-	</body>
+          <div class="demo-wrapper">
+            <div class="demo-container">
+              <iframe
+                id="rl-demo"
+                src="../articles/RL-Article_files/RL_Coding_Demo.html"
+                title="Reinforcement Learning Coding Demo"
+                loading="lazy"
+                scrolling="no"
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+
+          <a href="javascript:history.back()" class="back-link">← Back to previous page</a>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section aria-labelledby="contact-heading">
+          <form method="POST" action="https://formspree.io/f/xdoqnqpe">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" inputmode="email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="4" required></textarea>
+              </div>
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+              <input type="hidden" name="_subject" value="Portfolio contact – Projects page" />
+            </div>
+            <ul class="actions">
+              <li><input type="submit" value="Send Message" /></li>
+            </ul>
+          </form>
+        </section>
+
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>D.C. Area</p>
+          </section>
+          <section>
+            <h3>Phone</h3>
+            <p><a href="tel:+13072202006">(307) 220-2006</a></p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:erin.michele.weiss@gmail.com">erin.michele.weiss@gmail.com</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a href="https://www.linkedin.com/in/erinweiss3/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="icon brands fa-linkedin">
+                   <span class="label">LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Erin-Weiss"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="icon brands fa-github">
+                   <span class="label">GitHub</span>
+                </a>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul>
+          <li>© <span id="year"></span> Erin Weiss</li>
+          <li>Design: <a href="https://html5up.net" rel="noopener noreferrer" target="_blank">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Auto year -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const y = document.getElementById('year');
+        if (y) y.textContent = new Date().getFullYear();
+      });
+    </script>
+
+    <!-- Responsive iframe messaging -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const iframe = document.getElementById('rl-demo');
+        let applyTimer;
+
+        window.addEventListener('message', (event) => {
+          const data = event.data;
+          if (data && data.type === 'rl-demo-height' && Number.isFinite(data.height)) {
+            clearTimeout(applyTimer);
+            applyTimer = setTimeout(() => {
+              iframe.style.height = Math.ceil(data.height) + 'px';
+            }, 60);
+          }
+        });
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+            iframe.contentWindow?.postMessage({ type: 'rl-demo-remeasure' }, '*');
+          }, 400);
+        });
+
+        iframe.addEventListener('load', () => {
+          iframe.contentWindow?.postMessage({ type: 'rl-demo-remeasure' }, '*');
+        });
+      });
+    </script>
+
+    <!-- Theme scripts -->
+    <script src="../assets/js/jquery.min.js" defer></script>
+    <script src="../assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="../assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="../assets/js/browser.min.js" defer></script>
+    <script src="../assets/js/breakpoints.min.js" defer></script>
+    <script src="../assets/js/util.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
+  </body>
 </html>
