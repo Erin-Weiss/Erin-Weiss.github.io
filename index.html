@@ -19,6 +19,41 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <!-- Floating Back-to-Top Button Styles -->
+    <style>
+      /* ===== Back to top (floating pill bottom-right) ===== */
+      #backToTop {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        opacity: 0;
+        pointer-events: none;
+        background: #ffffffdd;
+        padding: 0.6rem 1.1rem;
+        border-radius: 40px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+        transition: opacity 0.6s ease;
+        z-index: 1000;
+      }
+
+      #backToTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      #backToTop a {
+        display: inline-block;
+        color: #1d3557;
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: none !important;
+      }
+
+      #backToTop a:hover {
+        color: #274b7a;
+      }
+    </style>
   </head>
 
   <body class="is-preload">
@@ -62,8 +97,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="icon brands fa-linkedin"
-              ><span class="label">LinkedIn</span></a
-            >
+              ><span class="label">LinkedIn</span></a>
           </li>
           <li>
             <a
@@ -71,8 +105,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="icon brands fa-github"
-              ><span class="label">GitHub</span></a
-            >
+              ><span class="label">GitHub</span></a>
           </li>
         </ul>
       </nav>
@@ -142,8 +175,8 @@
               ><img src="images/michelin.jpg" alt="Michelin stars Tableau dashboard" loading="lazy"
             /></a>
             <p>
-              This project explores Michelin Star-winning restaurants in Washington, D.C. It presents a
-              visually appealing and informative Tableau dashboard with interactive features.
+              This project explores Michelin Star-winning restaurants in Washington, D.C. 
+              using an interactive Tableau dashboard.
             </p>
             <ul class="actions special">
               <li><a href="articles/Tableau-1.html" class="button">View Project</a></li>
@@ -163,8 +196,13 @@
             <a href="#" class="page">9</a>
             <a href="#" class="page">10</a>
             <a href="#" class="next">Next</a>
-          </div>
+      </div>
         </footer> -->
+      </div>
+
+      <!-- Floating Back to Top -->
+      <div id="backToTop">
+        <a href="#header">↑ Back to top</a>
       </div>
 
       <!-- Footer -->
@@ -176,6 +214,7 @@
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" required />
               </div>
+
               <div class="field">
                 <label for="email">Email</label>
                 <input
@@ -187,6 +226,7 @@
                   required
                 />
               </div>
+
               <div class="field">
                 <label for="message">Message</label>
                 <textarea name="message" id="message" rows="4" required></textarea>
@@ -257,10 +297,33 @@
 
     <!-- Scripts -->
     <script>
+      // Back to top button
+      const btt = document.getElementById("backToTop");
+
+      function updateBackToTop() {
+        if (window.scrollY > 500) {
+          btt.classList.add("visible");
+        } else {
+          btt.classList.remove("visible");
+        }
+      }
+
+      window.addEventListener("scroll", updateBackToTop);
+      window.addEventListener("load", updateBackToTop);
+
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const target = document.querySelector(a.getAttribute("href"));
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
       // Auto year update
       (function () {
-        const y = document.getElementById("year");
-        if (y) y.textContent = new Date().getFullYear();
+      const y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
       })();
     </script>
 

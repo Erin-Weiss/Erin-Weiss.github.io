@@ -53,6 +53,41 @@
         margin-bottom: 0.25rem;
       }
     </style>
+
+    <!-- Floating Back-to-Top Button Styles -->
+    <style>
+      /* ===== Back to top (floating pill bottom-right) ===== */
+      #backToTop {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        opacity: 0;
+        pointer-events: none;
+        background: #ffffffdd;
+        padding: 0.6rem 1.1rem;
+        border-radius: 40px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+        transition: opacity 0.6s ease;
+        z-index: 1000;
+      }
+
+      #backToTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      #backToTop a {
+        display: inline-block;
+        color: #1d3557;
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: none !important;
+      }
+
+      #backToTop a:hover {
+        color: #274b7a;
+      }
+    </style>
   </head>
 
   <body class="is-preload">
@@ -112,6 +147,11 @@
 
           <a href="javascript:history.back()" class="back-link">← Back to previous page</a>
         </section>
+      </div>
+
+      <!-- Floating Back to Top -->
+      <div id="backToTop">
+        <a href="#header">↑ Back to top</a>
       </div>
 
       <!-- Footer -->
@@ -221,6 +261,30 @@
           iframe.contentWindow?.postMessage({ type: 'rl-demo-remeasure' }, '*');
         });
       });
+
+      // Back to top button
+      const btt = document.getElementById("backToTop");
+
+      function updateBackToTop() {
+        if (window.scrollY > 500) {
+          btt.classList.add("visible");
+        } else {
+          btt.classList.remove("visible");
+        }
+      }
+
+      window.addEventListener("scroll", updateBackToTop);
+      window.addEventListener("load", updateBackToTop);
+
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const target = document.querySelector(a.getAttribute("href"));
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
     </script>
 
     <!-- Theme scripts -->
