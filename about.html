@@ -1,124 +1,328 @@
 <!DOCTYPE HTML>
 <!--
-	Portfolio created by Erin Weiss
-	Originally used template from html5up.net
-	Template is free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Portfolio created by Erin Weiss
+  Originally used template from html5up.net
+  Template is free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
-	<head>
-		<title>About Me</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="icon" type="image/png" href="/favicon.png">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>About Me · Erin Weiss Portfolio</title>
+    <meta
+      name="description"
+      content="Learn more about Erin Weiss — Data Scientist based in the D.C. area with experience in AI, analytics, and business strategy. Explore her academic background, professional journey, and technical expertise."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href="https://erinweiss.dev/about.html" />
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Erin Weiss</a>
-					</header>
+    <style>
+      /* ======= About Page Custom Enhancements ======= */
+      .post .about-text {
+        line-height: 1.65;
+        margin-bottom: 1.2rem;
+        color: #2f3338;
+        font-size: 1.05rem;
+      }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="index.html">Projects</a></li>
-							<li class="active"><a href="about.html">About Me</a></li>
-							<li><a href="education.html">Education</a></li>
-							<li><a href="work.html">Work Experience</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/erinweiss3/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/Erin-Weiss" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+      section.post {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(248, 248, 248, 0.92) 100%
+        );
+        border-radius: 16px;
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+        padding: 2.5rem 2rem;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      }
 
-				<!-- Main -->
-					<div id="main">
+      /* --- Fade-in animation --- */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<h3 class="about" style="color: grey;">Hi, my name is&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h3>
-									<h2 class="about2">&emsp;&emsp;Erin Weiss.</h2>
-									<h3>I am a Data Scientist&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</h3>
-								</header>
-								<div class="image main">
-									<center><img src="images/headshot.jpg" alt="", style="max-width: 50%;" /></center>
-								</div>
-								<p>I currently live in Northern Virginia—right by D.C., and grew up in Jackson Hole, Wyoming. I have a diverse professional background, primarily in the retail and marketing sectors. In my most recent role as Director of Strategy for a national retail company, I oversaw strategic business decisions, including investment in marketing initiatives, store expansion, and identifying and tuning promotions for optimal performance. While in this role, I recognized the significance of having reliable business analytics in allocating resources effectively, particularly in projects with extended timelines before profitability realization.</p>
-								<p>I pursued my undergraduate studies at Georgetown University School of Foreign Service, majoring in Science, Technology, and International Affairs with a concentration in Energy and the Environment. Additionally, I minored in Mandarin Chinese and spent a semester abroad in China. To meet the graduation requirements, I successfully passed a Mandarin fluency exam.</p>
-								<p>For my Master’s degree, I achieved a 4.0 GPA and graduated with a Master of Science in Business Analytics. Among my most enriching courses were the Artificial Intelligence class, where we developed numerous AI models and practiced hyperparameter tuning, and the Optimization class, where we utilized Gurobi to identify global minima and maxima for various business challenges. Also, since completing my Python course, I have consistently provided tutoring assistance to fellow students in Python programming, allowing me to continue learning and keep my skills sharp.</p>
-							</section>
+      header.major h3.about {
+        opacity: 0;
+        animation: fadeUp 1.2s ease-out 0.1s forwards;
+      }
 
-					</div>
+      header.major h2.about2 {
+        opacity: 0;
+        animation: fadeUp 1.2s ease-out 0.4s forwards;
+      }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="POST" action="https://formspree.io/f/xdoqnqpe">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>D.C. Area<br />
-								</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="tel:3072202006">(307) 220-2006</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href=mailto:“erin.michele.weiss@gmail.com”>erin.michele.weiss@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/erinweiss3/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-									<li><a href="https://github.com/Erin-Weiss" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+      header.major h3:last-of-type {
+        opacity: 0;
+        animation: fadeUp 1.2s ease-out 0.7s forwards;
+      }
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Erin Weiss</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+      .image.main img {
+        opacity: 0;
+        transform: scale(0.98);
+        animation: fadeUp 1.4s ease-out 1s forwards;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
 
-			</div>
+      .image.main img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+      }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+      body:not(.is-preload) header.major h3.about,
+      body:not(.is-preload) header.major h2.about2,
+      body:not(.is-preload) header.major h3:last-of-type,
+      body:not(.is-preload) .image.main img {
+        will-change: opacity, transform;
+      }
+    </style>
+  </head>
 
-	</body>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo" aria-label="Go to home">Erin Weiss</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav" aria-label="Primary navigation">
+        <ul class="links">
+          <li><a href="index.html">Projects</a></li>
+          <li class="active"><a href="about.html" aria-current="page">About Me</a></li>
+          <li><a href="education.html">Education</a></li>
+          <li><a href="work.html">Work Experience</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/erinweiss3/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon brands fa-linkedin"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/Erin-Weiss"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <h3 class="about" style="color: grey;">
+              Hi, my name is&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </h3>
+            <h2 class="about2">&emsp;&emsp;Erin Weiss.</h2>
+            <h3>
+              I am a Data Scientist&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+            </h3>
+          </header>
+
+          <div class="image main">
+            <center>
+              <img
+                src="images/headshot.jpg"
+                alt="Portrait of Erin Weiss"
+                style="max-width: 50%;"
+                loading="lazy"
+              />
+            </center>
+          </div>
+
+          <p class="about-text">
+            In my role as Director of Strategy for a national retail company, I oversaw key strategic
+            business decisions, including marketing investments, store expansion, and identifying and tuning
+            promotions for optimal performance. While in this role, I enhanced the company’s business
+            analytics capabilities that improved how resources were allocated— especially for long-term
+            initiatives where results take time to materialize. This experience deepened my understanding of
+            the value of data-driven strategy and measurable business outcomes.
+          </p>
+
+          <p class="about-text">
+            One of the strengths I bring to any organization is my curiosity and drive to continuously learn
+            and apply new technologies to solve complex business problems. Through my experience earning a
+            Master of Science in Business Analytics (4.0 GPA), I’ve developed complex code and implemented
+            advanced analytical methods, including building and tuning artificial intelligence models and
+            using optimization tools such as Gurobi to identify global minima and maxima for strategic
+            decision-making. These experiences strengthened my ability to translate data insights into
+            actionable business strategies. After completing my Python course, I continued to tutor others in
+            programming, which not only strengthened my students' technical competencies, but also reinforced
+            mine.
+          </p>
+
+          <p class="about-text">
+            I earned my undergraduate degree from Georgetown University’s School of Foreign Service,
+            majoring in Science, Technology, and International Affairs with a concentration in Energy and the
+            Environment. Before studying Mandarin Chinese formally, I had already begun teaching myself the
+            language and passed early fluency exams. At Georgetown, I deepened that foundation by minoring in
+            Mandarin and spending a semester studying abroad in China. Upon returning, I successfully passed
+            an advanced fluency exam, demonstrating my persistence and passion for continuous learning.
+          </p>
+
+          <p class="about-text">
+            Having lived in Jackson Hole, Wyoming, and Northern Virginia (near Washington, D.C.), as well as
+            spending a semester studying abroad in China, I’ve gained an appreciation for diverse
+            perspectives and adaptability. These experiences have strengthened my ability to collaborate
+            across cultures and approach challenges with both creativity and analytical precision.
+          </p>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section aria-labelledby="contact-heading">
+          <form method="POST" action="https://formspree.io/f/xdoqnqpe">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="4" required></textarea>
+              </div>
+
+              <!-- Honeypot -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+              <input type="hidden" name="_subject" value="Portfolio contact – About Me page" />
+            </div>
+            <ul class="actions">
+              <li><input type="submit" value="Send Message" /></li>
+            </ul>
+          </form>
+        </section>
+
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>D.C. Area</p>
+          </section>
+          <section>
+            <h3>Phone</h3>
+            <p><a href="tel:+13072202006">(307) 220-2006</a></p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:erin.michele.weiss@gmail.com">erin.michele.weiss@gmail.com</a>
+            </p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/erinweiss3/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands fa-linkedin"
+                  ><span class="label">LinkedIn</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/Erin-Weiss"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands fa-github"
+                  ><span class="label">GitHub</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>© <span id="year"></span> Erin Weiss</li>
+          <li>
+            Design:
+            <a href="https://html5up.net" rel="noopener noreferrer" target="_blank">HTML5 UP</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Auto year update
+      (function () {
+        const y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+      })();
+
+      // Retrigger fade animations
+      (function () {
+        let lastTriggered = Date.now(); 
+        let wasAtTop = window.scrollY <= 10;
+
+        function retriggerAnimations() {
+          document.body.classList.add("is-preload");
+          void document.body.offsetWidth;
+          document.body.classList.remove("is-preload");
+        }
+
+        window.addEventListener("scroll", function () {
+          const y = window.scrollY;
+          const now = Date.now();
+
+          const atTop = y <= 10;
+          const scrolledDownFromTop = !atTop && wasAtTop; 
+
+          if (scrolledDownFromTop && now - lastTriggered > 2000) {
+            retriggerAnimations();
+            lastTriggered = now;
+          }
+
+          wasAtTop = atTop;
+        });
+      })();
+    </script>
+
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>

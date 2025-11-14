@@ -1,243 +1,604 @@
 <!DOCTYPE HTML>
 <!--
-	Portfolio created by Erin Weiss
-	Originally used template from html5up.net
-	Template is free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Portfolio created by Erin Weiss
+  Originally used template from html5up.net
+  Template is free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
-	<head>
-		<title>Education</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="icon" type="image/png" href="/favicon.png">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Education · Erin Weiss Portfolio</title>
+    <meta
+      name="description"
+      content="Explore the educational background of Data Scientist Erin Weiss — including her Master's in Business Analytics from William & Mary, studies at Georgetown University, and language immersion experience at Minzu University in Beijing."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href="https://erinweiss.dev/education.html" />
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Erin Weiss</a>
-					</header>
+    <style>
+      /* ======= Education Page Enhancements ======= */
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="index.html">Projects</a></li>
-							<li><a href="about.html">About Me</a></li>
-							<li class="active"><a href="education.html">Education</a></li>
-							<li><a href="work.html">Work Experience</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/erinweiss3/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-							<li><a href="https://github.com/Erin-Weiss" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+      html {
+        scroll-behavior: smooth;
+      }
 
-				<!-- Main -->
-					<div id="main">
+      section.post {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(248, 248, 248, 0.92) 100%
+        );
+        border-radius: 16px;
+        box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+        padding: 2.5rem 2rem;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+      }
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<h1>Education Highlights</h1>
-									<center><div class="box alt">
-										<div class="row gtr-50 gtr-uniform", style="max-width: 50%;">
-											<div class="col-4"><span class="image fit"><img src="images/WM-Seal.png" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/Minzu-Seal.png" alt="" /></span></div>
-											<div class="col-4"><span class="image fit"><img src="images/GU-Seal.jpeg" alt="" /></span></div>
-										</div>
-									</div></center>
-								</header>
+      /* --- Fade-up animation --- */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-								<!-- Tables -->
-								<hr />
-								
-								<header>
-									<h2><center>William & Mary’s Raymond A. Mason School of Business</center></h2>
-									<p><center>Online Master of Science in Business Analytics</center>
-										<center>GPA — 4.0 </center>
-										<center>Member of Beta Gamma Sigma, International Honor Society — View More <a href="https://www.betagammasigma.org/home" target="_blank", class="deal_percent_link_style"><b>Here</b></a>  </center>
-									</p>
-								</header>
+      header.major h1 {
+        opacity: 0;
+        animation: fadeUp 1.2s ease-out 0.1s forwards;
+      }
 
-								<div class="table-wrapper">
-									<table>
-										<thead>
-											<tr>
-												<th colspan="2"><center>Class Names</center></th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>– Excel Bootcamp</td>
-												<td>– Probability & Statistics with R Programming</td>
-											</tr>
-											<tr>
-												<td>– Business Modeling with Python</td>
-												<td>– Competing through Business Analytics</td>
-											</tr>
-											<tr>
-												<td>– Optimization & Prescriptive Analytics</td>
-												<td>– Artificial Intelligence Applications for Business</td>
-											</tr>
-											<tr>
-												<td>– Decision Modeling</td>
-												<td>– Machine Learning and Predictive Analytics</td>
-											</tr>
-											<tr>
-												<td>– Databases and Data Warehouse for Business Intelligence</td>
-												<td>– Big Data and Cloud Computing Technologies</td>
-											</tr>
-											<tr>
-												<td>– Capstone Project</td>
-												<td>— Also was a Python Tutor for the Python Class Throughout </td>
-										</tbody>
-									</table>
-									<i><p>View More About Program <a href="https://online.mason.wm.edu/msba#pillars" target="_blank", class="deal_percent_link_style"><b>Here</b></a></p></i>
-								</div>
-								
-								<hr />
-								
-								<header>
-									<h2><center>ACC Intensive Language Program at Minzu University in Beijing</center></h2>
-									<p><center>Studied Abroad Fall Semester 2016</center>
-										<center>Full Language Immersion — only allowed to speak in Mandarin  </center>
-									</p>
-								</header>
+      header.major .box.alt {
+        opacity: 0;
+        animation: fadeUp 1.4s ease-out 0.5s forwards;
+      }
 
-								<hr />
-								
-								<header>
-									<h2><center>Georgetown University School of Foreign Service</center></h2>
-									<p><center>Major — Science, Technology, International Affairs</center>
-										<center>Minor — Mandarin </center>
-										<center>GPA — 3.4 </center>
-									</p>
-								</header>
+      /* --- Logo grid --- */
+      .box.alt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-								<div class="table-wrapper">
-									<table>
-										<thead>
-											<tr>
-												<th colspan="2"><center>Class Names – Not Exhaustive List</center></th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>– Economics (Macro, Micro, Int'l Trade, Int'l Finance)</td>
-												<td>– Intensive Chinese (every semester)</td>
-											</tr>
-											<tr>
-												<td>– Green Politics</td>
-												<td>– History of China</td>
-											</tr>
-											<tr>
-												<td>– Comparative Political Systems</td>
-												<td>– International Relations</td>
-											</tr>
-											<tr>
-												<td>– Science and Technology in the Global Arena</td>
-												<td>– History of Southeast Asia</td>
-											</tr>
-											<tr>
-												<td>– Environmental Justice</td>
-												<td>– Ethics, and the Environment</td>
-											</tr>
-											<tr>
-												<td>– Environmental Law, Technology, and Justice</td>
-												<td>– General Chemistry and lab</td>
-											</tr>
-											<tr>
-												<td>– Energy and International Security</td>
-												<td>– Environmental Sustainability and Business Strategy</td>
-											</tr>
-											<tr>
-												<td>– Pacific World</td>
-												<td>– Chinese Military Power</td>
-											</tr>
-											<tr>
-												<td>– Methods in Energy Analysis (Physics and Chemistry)</td>
-												<td>– Computer Lab – International Air Quality</td>
-											</tr>
-											<tr>
-												<td>– Energy and Environment in Eurasia</td>
-												<td>– Political & Social Thought</td>
-											</tr>
-										</tbody>
-									</table>
-									<i><p>View More About Program <a href="https://sfs.georgetown.edu/academics/undergraduate/majors/stia/" target="_blank", class="deal_percent_link_style"><b>Here</b></a></p></i>
-								</div>
+      .box.alt a {
+        text-decoration: none;
+        border-bottom: none;
+      }
 
-							</section>
+      .box.alt img {
+        display: block;
+        max-height: 130px;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+        padding: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+        border-radius: 8px;
+        opacity: 0.95;
+      }
 
-					</div>
+      .box.alt img:hover {
+        transform: scale(1.07);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        opacity: 1;
+      }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="POST" action="https://formspree.io/f/xdoqnqpe">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>D.C. Area<br />
-								</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="tel:3072202006">(307) 220-2006</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href=mailto:“erin.michele.weiss@gmail.com”>erin.michele.weiss@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="https://www.linkedin.com/in/erinweiss3/" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-									<li><a href="https://github.com/Erin-Weiss" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>	
-						</section>
-					</footer>
+      .row.gtr-uniform {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Erin Weiss</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+      .col-4 {
+        flex: 1 1 30%;
+        display: flex;
+        justify-content: center;
+      }
 
-			</div>
+      /* --- Table styling --- */
+      .table-wrapper {
+        overflow-x: auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+        margin-bottom: 2rem;
+        opacity: 0;
+      }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.98rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        overflow: hidden;
+      }
 
-	</body>
+      table th {
+        background: linear-gradient(135deg, #e8ecf3 0%, #d8e0ea 100%);
+        color: #333;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.9rem;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      table td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        vertical-align: top;
+      }
+
+      table tbody tr:nth-child(even) {
+        background: rgba(245, 247, 250, 0.8);
+      }
+
+      table tbody tr:hover {
+        background: rgba(224, 231, 242, 0.35);
+        transition: background 0.3s ease;
+      }
+
+      @media (max-width: 736px) {
+        .col-4 {
+          flex: 1 1 100%;
+        }
+        .box.alt img {
+          max-height: 100px;
+        }
+        table td {
+          font-size: 0.9rem;
+          padding: 0.6rem;
+        }
+      }
+
+      /* --- Section dividers --- */
+      hr {
+        border: 0;
+        height: 1px;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(0, 0, 0, 0.15),
+          transparent
+        );
+        margin: 2.5rem auto;
+        width: 80%;
+      }
+
+      /* === School section headers === */
+      .post header h2 {
+        font-size: 1.5rem;
+        letter-spacing: 0.02em;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        padding: 0.4rem 0.75rem;
+        border-left: none;
+        border-radius: 6px;
+        opacity: 0;
+      }
+
+      .post header:nth-of-type(2) h2 {
+        background: rgba(0, 102, 51, 0.08);
+        color: #006633;
+      }
+      .post header:nth-of-type(2) + .table-wrapper table th {
+        background: linear-gradient(135deg, #bcd9c4 0%, #9dc7ab 100%);
+        color: #003d1f;
+      }
+
+      .post header:nth-of-type(3) h2 {
+        background: rgba(204, 51, 51, 0.08);
+        color: #cc3333;
+      }
+
+      .post header:nth-of-type(4) h2 {
+        background: rgba(15, 45, 80, 0.08);
+        color: #0f2d50;
+      }
+      .post header:nth-of-type(4) + .table-wrapper table th {
+        background: linear-gradient(135deg, #c8d3e4 0%, #9cb0cc 100%);
+        color: #0a1f3a;
+      }
+
+      .post p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* ----------------------------------------------
+         Styled "Here" Links (smooth fade)
+         Applies to:
+           - Beta Gamma Sigma "Here"
+           - Both "View More About Program Here"
+      ---------------------------------------------- */
+
+      .special-here {
+        color: #000 !important; /* black */
+        border-bottom: 1px dotted #000 !important;
+        text-decoration: none;
+        transition: color 0.25s ease, border-bottom-color 0.25s ease;
+      }
+
+      .special-here b {
+        color: #000 !important;
+        transition: color 0.25s ease;
+      }
+
+      .special-here:hover {
+        border-bottom-color: transparent !important; 
+      }
+
+      .special-here:hover b {
+        color: #53e3fb !important; 
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <header id="header">
+        <a href="index.html" class="logo" aria-label="Go to home">Erin Weiss</a>
+      </header>
+
+      <nav id="nav" aria-label="Primary navigation">
+        <ul class="links">
+          <li><a href="index.html">Projects</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li class="active">
+            <a href="education.html" aria-current="page">Education</a>
+          </li>
+          <li><a href="work.html">Work Experience</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/erinweiss3/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon brands fa-linkedin"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/Erin-Weiss"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <h1>Education Highlights</h1>
+
+            <center>
+              <div class="box alt">
+                <div class="row gtr-50 gtr-uniform" style="max-width: 50%;">
+                  <div class="col-4">
+                    <a href="#william-mary"
+                      ><img src="images/WM-Seal.png" alt="William & Mary Seal" loading="lazy"
+                    /></a>
+                  </div>
+                  <div class="col-4">
+                    <a href="#minzu"
+                      ><img src="images/Minzu-Seal.png" alt="Minzu University Seal" loading="lazy"
+                    /></a>
+                  </div>
+                  <div class="col-4">
+                    <a href="#georgetown"
+                      ><img src="images/GU-Seal.jpeg" alt="Georgetown University Seal" loading="lazy"
+                    /></a>
+                  </div>
+                </div>
+              </div>
+            </center>
+          </header>
+
+          <hr />
+
+          <header id="william-mary">
+            <h2><center>William &amp; Mary’s Raymond A. Mason School of Business</center></h2>
+            <p>
+              <center>Online Master of Science in Business Analytics</center>
+              <center>GPA — 4.0</center>
+              <center>
+                Member of Beta Gamma Sigma, International Honor Society —
+                <a
+                  class="special-here"
+                  href="https://www.betagammasigma.org/home"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b>Here</b></a
+                >
+              </center>
+            </p>
+          </header>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr><th colspan="2">Class Names</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>– Excel Bootcamp</td>
+                  <td>– Probability &amp; Statistics with R Programming</td>
+                </tr>
+                <tr>
+                  <td>– Business Modeling with Python</td>
+                  <td>– Competing through Business Analytics</td>
+                </tr>
+                <tr>
+                  <td>– Optimization &amp; Prescriptive Analytics</td>
+                  <td>– Artificial Intelligence Applications for Business</td>
+                </tr>
+                <tr>
+                  <td>– Decision Modeling</td>
+                  <td>– Machine Learning and Predictive Analytics</td>
+                </tr>
+                <tr>
+                  <td>– Databases and Data Warehouse for Business Intelligence</td>
+                  <td>– Big Data and Cloud Computing Technologies</td>
+                </tr>
+                <tr>
+                  <td>– Capstone Project</td>
+                  <td>— Also was a Python Tutor for the Python Class Throughout</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <i
+              ><p>
+                &emsp;View More About Program
+                <a
+                  class="special-here"
+                  href="https://online.mason.wm.edu/msba#pillars"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b>Here</b></a
+                >
+              </p></i
+            >
+          </div>
+
+          <hr />
+
+          <header id="minzu">
+            <h2><center>ACC Intensive Language Program at Minzu University in Beijing</center></h2>
+            <p>
+              <center>Studied Abroad Fall Semester 2016</center>
+              <center>Full Language Immersion — only allowed to speak in Mandarin</center>
+            </p>
+          </header>
+
+          <hr />
+
+          <header id="georgetown">
+            <h2><center>Georgetown University School of Foreign Service</center></h2>
+            <p>
+              <center>Major — Science, Technology, International Affairs</center>
+              <center>Minor — Mandarin</center>
+              <center>GPA — 3.4</center>
+            </p>
+          </header>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr><th colspan="2">Class Names – Not Exhaustive List</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>– Economics (Macro, Micro, Int'l Trade, Int'l Finance)</td>
+                  <td>– Intensive Chinese (every semester)</td>
+                </tr>
+                <tr>
+                  <td>– Green Politics</td>
+                  <td>– History of China</td>
+                </tr>
+                <tr>
+                  <td>– Comparative Political Systems</td>
+                  <td>– International Relations</td>
+                </tr>
+                <tr>
+                  <td>– Science and Technology in the Global Arena</td>
+                  <td>– History of Southeast Asia</td>
+                </tr>
+                <tr>
+                  <td>– Environmental Justice</td>
+                  <td>– Ethics, and the Environment</td>
+                </tr>
+                <tr>
+                  <td>– Environmental Law, Technology, and Justice</td>
+                  <td>– General Chemistry and lab</td>
+                </tr>
+                <tr>
+                  <td>– Energy and International Security</td>
+                  <td>– Environmental Sustainability and Business Strategy</td>
+                </tr>
+                <tr>
+                  <td>– Pacific World</td>
+                  <td>– Chinese Military Power</td>
+                </tr>
+                <tr>
+                  <td>– Methods in Energy Analysis (Physics and Chemistry)</td>
+                  <td>– Computer Lab – International Air Quality</td>
+                </tr>
+                <tr>
+                  <td>– Energy and Environment in Eurasia</td>
+                  <td>– Political &amp; Social Thought</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <i
+              ><p>
+                &emsp;View More About Program
+                <a
+                  class="special-here"
+                  href="https://sfs.georgetown.edu/academics/undergraduate/majors/stia/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><b>Here</b></a
+                >
+              </p></i
+            >
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section aria-labelledby="contact-heading">
+          <form method="POST" action="https://formspree.io/f/xdoqnqpe">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="4" required></textarea>
+              </div>
+
+              <!-- Honeypot -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+              <input type="hidden" name="_subject" value="Portfolio contact – Education page" />
+            </div>
+            <ul class="actions">
+              <li><input type="submit" value="Send Message" /></li>
+            </ul>
+          </form>
+        </section>
+
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>D.C. Area</p>
+          </section>
+          <section>
+            <h3>Phone</h3>
+            <p><a href="tel:+13072202006">(307) 220-2006</a></p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:erin.michele.weiss@gmail.com">erin.michele.weiss@gmail.com</a>
+            </p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/erinweiss3/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands fa-linkedin"
+                  ><span class="label">LinkedIn</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/Erin-Weiss"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands fa-github"
+                  ><span class="label">GitHub</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul>
+          <li>© <span id="year"></span> Erin Weiss</li>
+          <li>
+            Design:
+            <a href="https://html5up.net" target="_blank" rel="noopener noreferrer">HTML5 UP</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      (function () {
+        const y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+
+        const observerTargets = document.querySelectorAll(".post header h2, .table-wrapper");
+        let lastTriggerTime = 0;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const delay = entry.target.classList.contains("table-wrapper") ? 300 : 0;
+                setTimeout(() => {
+                  entry.target.style.animation = "fadeUp 1s ease-out forwards";
+                }, delay);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        observerTargets.forEach((el) => observer.observe(el));
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY < 100) {
+            const now = Date.now();
+            if (now - lastTriggerTime > 1500) {
+              observerTargets.forEach((el) => {
+                el.style.animation = "none";
+                el.offsetHeight;
+                observer.observe(el);
+              });
+              lastTriggerTime = now;
+            }
+          }
+        });
+      })();
+    </script>
+
+    <script src="assets/js/jquery.min.js" defer></script>
+    <script src="assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="assets/js/browser.min.js" defer></script>
+    <script src="assets/js/breakpoints.min.js" defer></script>
+    <script src="assets/js/util.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+  </body>
 </html>
