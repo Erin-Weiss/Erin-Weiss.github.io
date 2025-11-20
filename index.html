@@ -53,6 +53,24 @@
       #backToTop a:hover {
         color: #274b7a;
       }
+
+      /* ===== Uniform project thumbnails (aspect-ratio box, no distortion) ===== */
+      .thumb-ratio {
+        position: relative;
+        width: 100%;
+        padding-top: 66.666%; /* 3:2 aspect ratio */
+        overflow: hidden;
+      }
+
+      .thumb-ratio img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
     </style>
   </head>
 
@@ -144,15 +162,18 @@
           <article>
             <header>
               <h2>
-                <a href="articles/Real-Estate.html">Real Estate Analysis<br />in R</a>
+                <a href="articles/Real-Estate.html">Real Estate Analysis<br /> in R</a>
               </h2>
             </header>
             <a
               href="articles/Real-Estate.html"
               class="image fit"
               aria-label="View Real Estate Project"
-              ><img src="images/housing.jpg" alt="Real estate data visualization" loading="lazy"
-            /></a>
+            >
+              <div class="thumb-ratio">
+                <img src="images/housing.jpg" alt="Real estate data visualization" loading="lazy" />
+              </div>
+            </a>
             <p>
               This project analyzes national real estate data using R, exploring multiple variables,
               subgroups, and relationships among them.
@@ -165,22 +186,70 @@
           <article>
             <header>
               <h2>
-                <a href="articles/Tableau-1.html">Michelin Stars in D.C.<br />on Tableau</a>
+                <a href="articles/Tableau-1.html">Michelin Stars in D.C.<br /> on Tableau</a>
               </h2>
             </header>
             <a
               href="articles/Tableau-1.html"
               class="image fit"
               aria-label="View Tableau Project"
-              ><img src="images/michelin.jpg" alt="Michelin stars Tableau dashboard" loading="lazy"
-            /></a>
+            >
+              <div class="thumb-ratio">
+                <img src="images/michelin.jpg" alt="Michelin stars Tableau dashboard" loading="lazy" />
+              </div>
+            </a>
             <p>
               This project explores Michelin Star-winning restaurants in Washington, D.C. 
-              using an interactive Tableau dashboard. <br>
-              &emsp;
+              using an interactive Tableau dashboard with custom-designed glassmorphism techniques.
             </p>
             <ul class="actions special">
               <li><a href="articles/Tableau-1.html" class="button">View Project</a></li>
+            </ul>
+          </article>
+
+          <article>
+            <header>
+              <h2>
+                <a href="articles/clustering-project.html">States & Crime<br /> Clustering Project</a>
+              </h2>
+            </header>
+            <a
+              href="articles/clustering-project.html"
+              class="image fit"
+              aria-label="View Clustering Project"
+            >
+              <div class="thumb-ratio">
+                <img src="images/crime.jpg" alt="States & Crime Clustering Project" loading="lazy" />
+              </div>
+            </a>
+            <p>
+              This project analyzes the USArrests dataset and explores crime-rate patterns across all 50 U.S. states using both K-means clustering and hierarchical clustering.
+            </p>
+            <ul class="actions special">
+              <li><a href="articles/clustering-project.html" class="button">View Project</a></li>
+            </ul>
+          </article>
+
+          <article>
+            <header>
+              <h2>
+                <a href="articles/credit-pca.html">Credit Analysis<br /> Using PCA</a>
+              </h2>
+            </header>
+            <a
+              href="articles/credit-pca.html"
+              class="image fit"
+              aria-label="View PCA Project"
+            >
+              <div class="thumb-ratio">
+                <img src="images/credit.jpg" alt="Credit Analysis PCA Project" loading="lazy" />
+              </div>
+            </a>
+            <p>
+              This project analyzes the CreditShort data using Principal Component Analysis (PCA), through Income, Limit, Rating, Cards, Age, and Education.
+            </p>
+            <ul class="actions special">
+              <li><a href="articles/credit-pca.html" class="button">View Project</a></li>
             </ul>
           </article>
         </section>
@@ -230,7 +299,7 @@
 
               <div class="field">
                 <label for="message">Message</label>
-                <textarea name="message" id="message" rows="4" required></textarea>
+                <textarea name="message" id="message" rows="2" required></textarea>
               </div>
 
               <!-- Honeypot -->
@@ -323,8 +392,8 @@
 
       // Auto year update
       (function () {
-      const y = document.getElementById("year");
-      if (y) y.textContent = new Date().getFullYear();
+        const y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
       })();
     </script>
 

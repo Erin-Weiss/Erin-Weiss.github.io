@@ -3923,7 +3923,7 @@ input, select, textarea {
 
 			#main > .posts > article {
 				border-color: #eeeeee;
-				/* border-left-width: 2px; */
+				border-left-width: 2px;
 				border-style: solid;
 				border-top-width: 2px;
 				text-align: center;
@@ -4336,7 +4336,8 @@ input, select, textarea {
 					}
 
 					#footer > section.split.contact > section:last-child {
-						padding: 3rem 4rem 4rem 4rem;
+						padding: 3rem 4rem 2rem 4rem;
+						align-items: flex-start;
 					}
 
 					#footer > section.split.contact > section.alt {
