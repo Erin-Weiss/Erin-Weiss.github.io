@@ -4336,8 +4336,7 @@ input, select, textarea {
 					}
 
 					#footer > section.split.contact > section:last-child {
-						padding: 3rem 4rem 2rem 4rem;
-						align-items: flex-start;
+						padding: 3rem 4rem 4rem 4rem;
 					}
 
 					#footer > section.split.contact > section.alt {
