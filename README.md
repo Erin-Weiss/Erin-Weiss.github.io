@@ -45,7 +45,7 @@ Here are some of the main technologies I've worked with:
 
 ---
 
-## 📂 Project Highlights  
+## 🗂️ Project Highlights  
 
 Here are a few of the projects you'll find in this portfolio:  
 
@@ -100,6 +100,48 @@ Here are a few of the projects you'll find in this portfolio:
 - **Live Demo:** [Demo Link](https://erin-weiss.github.io/tableau-DC-food-dashboard/)  
 - **Code:** [Project Folder](https://github.com/Erin-Weiss/tableau-DC-food-dashboard)  
 - **Portfolio Page:** [Link](https://erin-weiss.github.io/articles/Tableau-1.html)  
+
+---
+
+<details>
+  <summary><h2>📂 More Projects</h2></summary>
+
+### 💳 Credit Analysis PCA Project  
+
+- **Description:**  
+  This project is a **Principal Component Analysis (PCA)** exploring financial and demographic patterns across **400 credit applicants**.  
+  The project analyzes how variables such as **Income**, **Credit Limit**, **Rating**, **Cards**, **Age**, and **Education** relate to one another and contribute to overall variance in applicant profiles.  
+
+  By reducing the dimensionality of the dataset to key components, the analysis reveals underlying behavioral and financial drivers that distinguish applicant groups.
+
+- **Technologies Used:**  
+  `R`, `tidyverse`, `Quarto`, `HTML Reporting`, `Data Visualization`, `PCA`
+
+- **Live Demo:** [Demo Link](https://erin-weiss.github.io/PCA-Credit-Analysis/)  
+- **Code:** [Project Folder](https://github.com/Erin-Weiss/PCA-Credit-Analysis)  
+- **Portfolio Page:** [Link](https://erin-weiss.github.io/articles/credit-pca.html)
+
+---
+
+### 🏛️ States & Crime Clustering Project  
+
+- **Description:**  
+  This project is an unsupervised learning analysis of the **USArrests** dataset that uncovers hidden crime-rate patterns across all 50 U.S. states.  
+  The project compares **K-means clustering (k = 2–5)** and **hierarchical clustering**—with and without scaling—to evaluate how Murder, Assault, Rape, and UrbanPop contribute to natural groupings in the data.  
+  The analysis incorporates **WCSS**, the **Elbow Method**, and the **Gap Statistic** to identify an appropriate number of clusters, revealing distinct high, medium, and low-crime state profiles and showing that **urbanization is not a consistent predictor of violent crime**.
+
+- **Technologies Used:**  
+  `R`, `tidyverse`, `cluster`, `factoextra`,  
+  `K-means`, `Hierarchical Clustering`, `Scaling & Standardization`,  
+  `WCSS Analysis`, `Elbow Method`, `Gap Statistic`,  
+  `Quarto`, `HTML Reporting`, `Data Visualization`
+
+- **Live Demo:** [Demo Link](https://erin-weiss.github.io/Clustering-Analysis-US-Arrests/) 
+- **Code:** [Project Folder](https://github.com/Erin-Weiss/Clustering-Analysis-US-Arrests/tree/main)
+- **Portfolio Page:** [Link](https://erin-weiss.github.io/articles/clustering-project.html)
+
+
+</details>
 
 ---
 
