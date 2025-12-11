@@ -95,7 +95,7 @@ Here are a few of the projects you'll find in this portfolio:
 
 - **Live Demo:** [Demo Link](https://excel-cleaning-and-compare-app.streamlit.app/)  
 - **Code:** [Project Folder](https://github.com/Erin-Weiss/Excel-cleaning-and-compare-app)  
-- **Portfolio Page:** [Link](https://erin-weiss.github.io)  
+- **Portfolio Page:** [Link](https://erin-weiss.github.io/articles/Excel-Cleaning.html)
 
 ---
 
