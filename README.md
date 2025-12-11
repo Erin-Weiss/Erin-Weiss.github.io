@@ -83,6 +83,22 @@ Here are a few of the projects you'll find in this portfolio:
 
 ---
 
+### ⎘ Excel Cleaning & Comparison App  
+
+- **Description:**  
+  A **Streamlit web application** for cleaning, standardizing, and comparing **Excel files**, especially messy spreadsheets created from **PDF-to-Excel invoice conversions**.
+  
+  Includes a flexible **General App** for a wide range of invoice-style layouts and a streamlined **Aftermath App** tailored to Aftermath Disaster Recovery’s recurring invoice + monitoring workflows. Users can clean files, compare them using a shared **ID column**, detect missing or mismatched records, and download all results as multi-sheet Excel outputs. A built-in **Tutorial** with sample files and a **Contact** form support onboarding and feedback.  
+
+- **Technologies Used:**  
+  `Python`, `Streamlit`, `pandas`, `openpyxl`, `Pillow`, `requests`, `email_validator`, `captcha`, `streamlit_js_eval`  
+
+- **Live Demo:** [Demo Link](https://excel-cleaning-and-compare-app.streamlit.app/)  
+- **Code:** [Project Folder](https://github.com/Erin-Weiss/Excel-cleaning-and-compare-app)  
+- **Portfolio Page:** [Link](https://erin-weiss.github.io)  
+
+---
+
 ### ⭐ Michelin Stars in Washington, D.C.  
 
 - **Description:**  
