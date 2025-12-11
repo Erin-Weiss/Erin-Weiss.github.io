@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+<!--
+  Portfolio created by Erin Weiss
+  Originally used template from html5up.net
+  Template is free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Projects · Excel Cleaning & Compare App – Erin Weiss</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore Erin Weiss’s Streamlit-based Excel Cleaning & Compare App — an interactive tool for cleaning messy spreadsheets and comparing invoice-style tables."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href="https://erinweiss.dev/articles/Excel-Cleaning-Compare-App.html" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+
+    <style>
+      .tab-content {
+        min-height: 80vh;
+        height: auto;
+        margin-left: -10%;
+        margin-right: -10%;
+      }
+
+      /* ---- App Embed Styling ---- */
+      .viz-card {
+        width: 100%;
+        max-width: 1600px;
+        margin: 2rem auto;
+        border-radius: 22px;
+        box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+        transition: box-shadow 0.3s ease, transform 0.25s ease;
+        background: transparent;
+      }
+
+      .viz-card:hover {
+        box-shadow: 0 26px 66px rgba(0, 0, 0, 0.22);
+        transform: translateY(-2px);
+      }
+
+      .viz-inner {
+        border-radius: 18px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #e0eafc, #cfdef3);
+      }
+
+      .viz-iframe {
+        display: block;
+        width: 100%;
+        height: clamp(850px, 90vh, 1400px);
+        border: none;
+      }
+
+      @media (max-width: 1000px) {
+        .viz-card {
+          max-width: 95vw;
+        }
+        .viz-iframe {
+          height: clamp(1000px, 95vh, 1500px);
+        }
+      }
+
+      .back-link {
+        margin-top: 1rem;
+        display: inline-block;
+      }
+    </style>
+
+    <!-- Floating Back-to-Top Button Styles -->
+    <style>
+      /* ===== Back to top (floating pill bottom-right) ===== */
+      #backToTop {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        opacity: 0;
+        pointer-events: none;
+        background: #ffffffdd;
+        padding: 0.6rem 1.1rem;
+        border-radius: 40px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+        transition: opacity 0.6s ease;
+        z-index: 1000;
+      }
+
+      #backToTop.visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      #backToTop a {
+        display: inline-block;
+        color: #1d3557;
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: none !important;
+      }
+
+      #backToTop a:hover {
+        color: #274b7a;
+      }
+    </style>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="../index.html" class="logo" aria-label="Go to home">Erin Weiss</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav" aria-label="Primary navigation">
+        <ul class="links">
+          <li class="active"><a href="../index.html" aria-current="page">Projects</a></li>
+          <li><a href="../about.html">About Me</a></li>
+          <li><a href="../education.html">Education</a></li>
+          <li><a href="../work.html">Work Experience</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a
+              href="https://www.linkedin.com/in/erinweiss3/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon brands fa-linkedin"
+              ><span class="label">LinkedIn</span></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/Erin-Weiss"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <section class="post">
+          <header class="major">
+            <h2 class="work">Excel Cleaning & Compare App</h2>
+          </header>
+
+          <div>
+            <!-- Streamlit App Embed -->
+            <div class="tab-content">
+              <div class="viz-card">
+                <div class="viz-inner">
+                  <iframe
+                    class="viz-iframe"
+                    src="https://excel-cleaning-and-compare-app.streamlit.app/?embed=true"
+                    title="Excel Cleaning and Compare App by Erin Weiss"
+                    loading="lazy"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+
+            <br />
+            <h2>App Overview & Commentary</h2>
+            <p>
+              This Streamlit app is designed to make working with Excel files faster and without manually having to restructure data. It focuses on two core workflows: <strong>cleaning invoices and tabular data</strong> that often come from PDF exports,and <strong>comparing two related datasets</strong> after they’ve been standardized.
+            </p>
+
+            <p>
+              The app supports multiple patterns you commonly see in real-world spreadsheets: multiple header rows, shifted or extra columns, extra notes at the top or bottom of the file, “Totals” rows mixed into the data, and inconsistent date formats. Instead of fixing each file manually in Excel, this tool guides you through a repeatable process and lets you download a clean version of the data for further analysis.
+            </p>
+
+            <p>
+              There are two main tools inside the app: <strong>the Aftermath App</strong> (tailored to a specific recurring workflow) and <strong>the General App</strong> (built to handle a wider range of layouts while still being guided and structured). Both are backed by the same cleaning logic, but expose different levels of flexibility depending on how messy or standardized your input files are.
+            </p>
+
+            <p>Here’s a breakdown of the project:</p>
+
+            <ol>
+              <li style="font-weight:bold">Cleaning Excel files</li>
+              <ul>
+                <li>
+                  The app helps you clean the header row, drop extra top rows, and trim off unneeded data at the bottom of the sheet. This is especially useful for files exported from PDF, where tables rarely start cleanly on row 1 and often include titles or notes above the headers.
+                </li>
+                <li>
+                  You can control where the data starts (by column) and how many columns you expect to see, which helps catch cases where columns shift left or right between files. The app reshapes the incoming data into a clean dataframe so downstream comparisons are less fragile.
+                </li>
+              </ul>
+
+              <li style="font-weight:bold">Standardizing columns and dates</li>
+              <ul>
+                <li>
+                  Many real-world spreadsheets have missing information that needs to be filled to have a clean dataframe. This cleaning process helps fill those gaps in several ways (forward fill, backwards fill, or custom fill) by column.
+                </li>
+                <li>
+                  Date handling is a major pain point, so the tool offers options for strict and flexible date parsing, filling missing values, and enforcing a consistent date format. This makes it much easier to filter, join, and aggregate data later on.
+                </li>
+                <li>
+                  There is also an option to add extra columns that will track if there was any information filled in a missing cell so there is no ambiguity on what was the original data.
+                </li>
+              </ul>
+
+              <li style="font-weight:bold">Comparing two related files</li>
+              <ul>
+                <li>
+                  Once two files have been cleaned into a clean structure, the app supports comparing them side-by-side as long as they have a shared unique identifier column.
+                </li>
+                <li>
+                  The comparison highlights mismatches, missing rows, or differences in values between the two datasets for the same unique ID. This is especially valuable for reconciliation work, where you need to quickly see where numbers diverge and why.
+                </li>
+              </ul>
+
+              <li style="font-weight:bold">Guided workflows and sample files</li>
+              <ul>
+                <li>
+                  The app is built to be approachable, even if you’re not comfortable writing code. The interface walks you through each step: uploading files, defining the header row, selecting cleaning options, and finally downloading the cleaned or compared output.
+                </li>
+                <li>
+                  Sample files (including Aftermath-style invoices and more general invoice layouts) are provided so you can follow along with suggested walkthroughs. This makes it easy to understand how the cleaning engine behaves before you plug in your own data.
+                </li>
+              </ul>
+
+              <li style="font-weight:bold">Why build it as a Streamlit app?</li>
+              <ul>
+                <li>
+                  Packaging this workflow in Streamlit makes it accessible through the browser, with no need to install Python locally. It also allows for easy access for the user with an interface that can be accessed anywhere as long as there is an internet connection. Also, future iteration for the cleaning options or comparison modes can be added without changing the way users access the tool.
+                </li>
+                <li>
+                  The app is deployed on Streamlit Community Cloud, which handles hosting and makes it simple to share a single link on this portfolio page or with the end users. By embedding the app directly here, visitors can explore the functionality in context alongside the written explanation.
+                </li>
+              </ul>
+            </ol>
+
+            <br />
+            <a href="javascript:history.back()" class="back-link">← Back to Previous Page</a>
+          </div>
+        </section>
+      </div>
+
+      <!-- Floating Back to Top -->
+      <div id="backToTop">
+        <a href="#header">↑ Back to top</a>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section aria-labelledby="contact-heading">
+          <form method="POST" action="https://formspree.io/f/xdoqnqpe">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  inputmode="email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="2" required></textarea>
+              </div>
+
+              <!-- Honeypot -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+              <input type="hidden" name="_subject" value="Portfolio contact – Excel App page" />
+            </div>
+            <ul class="actions">
+              <li><input type="submit" value="Send Message" /></li>
+            </ul>
+          </form>
+        </section>
+
+        <section class="split contact">
+          <section class="alt">
+            <h3>Location</h3>
+            <p>D.C. Area</p>
+          </section>
+          <section>
+            <h3>Phone</h3>
+            <p><a href="tel:+13072202006">(307) 220-2006</a></p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p>
+              <a href="mailto:erin.michele.weiss@gmail.com">erin.michele.weiss@gmail.com</a>
+            </p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/erinweiss3/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands fa-linkedin"
+                  ><span class="label">LinkedIn</span></a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://github.com/Erin-Weiss"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="icon brands fa-github"
+                  ><span class="label">GitHub</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <div id="copyright">
+        <ul>
+          <li>© <span id="year"></span> Erin Weiss</li>
+          <li>
+            Design:
+            <a href="https://html5up.net" rel="noopener noreferrer" target="_blank">HTML5 UP</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Auto year
+      (function () {
+        var y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+      })();
+
+      // Back to top button
+      const btt = document.getElementById("backToTop");
+
+      function updateBackToTop() {
+        if (window.scrollY > 500) {
+          btt.classList.add("visible");
+        } else {
+          btt.classList.remove("visible");
+        }
+      }
+
+      window.addEventListener("scroll", updateBackToTop);
+      window.addEventListener("load", updateBackToTop);
+
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const target = document.querySelector(a.getAttribute("href"));
+          if (!target) return;
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+    </script>
+
+    <script src="jquery.js" defer></script>
+    <script src="../assets/js/jquery.min.js" defer></script>
+    <script src="../assets/js/jquery.scrollex.min.js" defer></script>
+    <script src="../assets/js/jquery.scrolly.min.js" defer></script>
+    <script src="../assets/js/browser.min.js" defer></script>
+    <script src="../assets/js/breakpoints.min.js" defer></script>
+    <script src="../assets/js/util.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
+  </body>
+</html>
