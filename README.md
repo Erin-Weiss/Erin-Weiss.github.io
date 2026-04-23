@@ -1,4 +1,4 @@
-# 🌐 Erin Weiss's Personal Portfolio  
+# Erin Weiss's Personal Portfolio  
 **Data Scientist | AI & ML Enthusiast | Loves turning data into insight and insight into design — uniting form, function, and intelligence.**
 
 Welcome to my personal portfolio repository! 
@@ -6,14 +6,14 @@ This GitHub repository showcases the **projects, skills, and experiences** I've 
 
 ---
 
-## 🔗 Live Demo  
+## Live Demo  
 
 Check out the live version of my portfolio:  
 👉 [**Portfolio URL**](https://erin-weiss.github.io/index.html)
 
 ---
 
-## 🚀 About Me  
+## About Me  
 
 I'm a **Data Scientist** with a passion for **AI**, **machine learning**, and **building models** that make a difference.  
 I enjoy solving complex problems and building projects that are both analytical and creative.  
@@ -27,7 +27,7 @@ In this repository, you'll find projects that highlight my skills in:
 
 ---
 
-## 🛠️ Technologies  
+## Technologies  
 
 Here are some of the main technologies I've worked with:  
 
@@ -45,13 +45,13 @@ Here are some of the main technologies I've worked with:
 
 ---
 
-## 🗂️ Project Highlights  
+## Project Highlights  
 
 Here are a few of the projects you'll find in this portfolio:  
 
 ---
 
-### 🤖 Reinforcement Learning Project  
+### Reinforcement Learning Project  
 
 - **Description:**  
   This project explores **reinforcement learning** through hands-on implementation of algorithms in a Jupyter notebook.  
@@ -67,7 +67,7 @@ Here are a few of the projects you'll find in this portfolio:
 
 ---
 
-### 🏠 R Real Estate Project  
+### R Real Estate Project  
 
 - **Description:**  
   An analysis of **U.S. housing trends (2016–2022)** using `Realtor.com` data.  
@@ -83,7 +83,7 @@ Here are a few of the projects you'll find in this portfolio:
 
 ---
 
-### ⎘ Excel Cleaning & Comparison App  
+### Excel Cleaning & Comparison App  
 
 - **Description:**  
   A **Streamlit web application** for cleaning, standardizing, and comparing **Excel files**, especially messy spreadsheets created from **PDF-to-Excel invoice conversions**.
@@ -99,7 +99,7 @@ Here are a few of the projects you'll find in this portfolio:
 
 ---
 
-### ⭐ Michelin Stars in Washington, D.C.  
+### Michelin Stars in Washington, D.C.  
 
 - **Description:**  
   An **interactive Tableau dashboard** that explores the Michelin-starred restaurant landscape in Washington, D.C.  
@@ -122,7 +122,7 @@ Here are a few of the projects you'll find in this portfolio:
 <details>
   <summary><h2>📂 More Projects</h2></summary>
 
-### 💳 Credit Analysis PCA Project  
+### Credit Analysis PCA Project  
 
 - **Description:**  
   This project is a **Principal Component Analysis (PCA)** exploring financial and demographic patterns across **400 credit applicants**.  
@@ -139,7 +139,7 @@ Here are a few of the projects you'll find in this portfolio:
 
 ---
 
-### 🏛️ States & Crime Clustering Project  
+### States & Crime Clustering Project  
 
 - **Description:**  
   This project is an unsupervised learning analysis of the **USArrests** dataset that uncovers hidden crime-rate patterns across all 50 U.S. states.  
