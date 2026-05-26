@@ -1,175 +1,132 @@
-# Erin Weiss's Personal Portfolio  
-**Data Scientist | AI & ML Enthusiast | Loves turning data into insight and insight into design — uniting form, function, and intelligence.**
+# Erin Weiss Portfolio
 
-Welcome to my personal portfolio repository! 
-This GitHub repository showcases the **projects, skills, and experiences** I've built as a **Data Scientist**. From data analysis and AI models to web development (seen through the portfolio itself) and beyond, this collection reflects my passion for creating impactful and innovative solutions.
+**Data Scientist and ML Engineer** · Designing, training, and deploying machine learning systems from research through production.
 
----
-
-## Live Demo  
-
-Check out the live version of my portfolio:  
-👉 [**Portfolio URL**](https://erin-weiss.github.io/index.html)
+[![Portfolio](https://img.shields.io/badge/Portfolio-erin--weiss.github.io-blue?style=flat&logo=github)](https://erin-weiss.github.io/index.html)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-erinweiss3-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/erinweiss3/)
+[![Email](https://img.shields.io/badge/Email-erin.michele.weiss%40gmail.com-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:erin.michele.weiss@gmail.com)
+[![Résumé](https://img.shields.io/badge/Résumé-Download_PDF-green?style=flat&logo=googledocs&logoColor=white)](https://drive.google.com/file/d/1eBUVzJnTZ_t7UB1Azzgs1JVbIv-pcj5K/view?usp=sharing)
 
 ---
 
-## About Me  
+## About
 
-I'm a **Data Scientist** with a passion for **AI**, **machine learning**, and **building models** that make a difference.  
-I enjoy solving complex problems and building projects that are both analytical and creative.  
+I build machine learning systems that go beyond the notebook. My recent work covers the full ML lifecycle — exploratory analysis, feature engineering, model comparison across multiple architectures, and production deployment with containerization, orchestration, monitoring, and CI/CD. I've trained models that predict within ~$1,300 of true market prices across 243k records and deployed them as production APIs with automated testing, health monitoring, and autoscaling infrastructure.
 
-In this repository, you'll find projects that highlight my skills in:  
+I'm equally comfortable deep in a feature importance analysis as I am writing Dockerfiles and Kubernetes manifests. I care about building models that are validated, documented, and ready to serve real traffic — not just ones that perform well in a notebook.
 
-- **Data analysis:** `Python`, `Pandas`, `SQL`, `R`, `Artificial Intelligence (AI)`, `Reinforcement Learning`, `Data Visualization`, `Tableau`, `Jupyter`, `NumPy`, `Matplotlib`  
-- **DevOps and CI/CD:** `Git`, `GitHub`, `Bash`, `Shell`  
-- **Frontend development:** `HTML`, `CSS`, `Streamlit`, some `JavaScript`  
-- **Creative tools:** `Figma`, `Linearity Curve Vector Art`, `Sketchbook`  
+**Live portfolio →** [erin-weiss.github.io](https://erin-weiss.github.io/index.html)
 
 ---
 
-## Technologies  
+## Featured Projects
 
-Here are some of the main technologies I've worked with:  
+### Used Car Price Prediction — Model Development
 
-**Data Science:**  
-`Artificial Intelligence (AI)`, `Computer Vision`, `Convolutional Neural Networks (CNN)`, `Data Analytics`, `Data Mining`, `Data Modeling`, `Data Visualization`, `Deep Learning`, `Gurobi`, `Jupyter Notebook`, `Machine Learning`, `Matplotlib`, `Natural Language Processing (NLP)`, `NumPy`, `Optimization`, `Pandas`, `PCA`, `Predictive Analytics`, `Predictive Modeling`, `PySpark`, `Python`, `R`, `Recommender Systems`, `Scikit-learn`, `Seaborn`, `Statistical Data Analysis`, `Statistical Modeling`, `Tableau`, `TensorFlow`, `Keras`, `Time Series Analysis`
+Predicts used-car listing prices within **~$1,300 at the median** across 243k vehicles, 29 manufacturers, and 5,600+ model variants. Compared three architectures — Ridge regression, CatBoost, and FT-Transformer (attention-based deep learning) — with CatBoost selected for production based on its combination of accuracy, inference speed, and native categorical feature handling. Includes full EDA, feature engineering across 20+ vehicle attributes, and reproducible experiment management with versioned run artifacts.
 
-**Databases:**  
-`Alteryx`, `Data Warehousing`, `Extract, Transform, Load (ETL)`, `Google Analytics`, `Google Cloud Dataproc`, `Hadoop`, `Microsoft SQL Server`, `MySQL`, `PostgreSQL`, `Spark / Apache Spark`, `SQL`, `SQL Server Reporting Services (SSRS)`
-
-**DevOps & CI/CD:**  
-`Bash`, `Git`, `GitHub`, `LaTeX`, `Markdown`, `Quarto`, `Shell`
-
-**Frontend:**  
-`CSS`, `Excel` (pivot tables), `HTML`, `JavaScript`, `Streamlit`
+**Tech:** `Python` · `scikit-learn` · `CatBoost` · `TensorFlow` · `Keras` · `keras-tuner` · `pandas` · `NumPy` · `Matplotlib` · `Seaborn` · `Quarto` · `joblib`  
+**Links:** [Live Report](https://erin-weiss.github.io/used-car-price-prediction/notebooks/01_used_car_price_regression.html) · [GitHub Repo](https://github.com/Erin-Weiss/used-car-price-prediction) · [Portfolio Page](https://erin-weiss.github.io/articles/Used-Car-Price.html)
 
 ---
 
-## Project Highlights  
+### Used Car Price Prediction API — Production Deployment
 
-Here are a few of the projects you'll find in this portfolio:  
+Takes the trained CatBoost model from Part 1 and deploys it as a **production-ready prediction service**. The API handles request validation with Pydantic v2, fuzzy matching of free-text user inputs, and median imputation of optional fields. Containerized with a multi-stage Docker build, orchestrated on Kubernetes with HPA autoscaling, and monitored via Prometheus + Grafana. Automated CI/CD through GitHub Actions runs the full test suite — including end-to-end predictions against the real model — on every merge to main.
 
----
-
-### Reinforcement Learning Project  
-
-- **Description:**  
-  This project explores **reinforcement learning** through hands-on implementation of algorithms in a Jupyter notebook.  
-  The goal is to demonstrate how an agent can learn to make decisions over time in an environment using reward signals.  
-  Concepts such as **exploration vs. exploitation**, **policy optimization**, **hyperparameter tuning**, and **reward shaping** are demonstrated through code and visualizations.  
-
-- **Technologies Used:**  
-  `Python`, `NumPy`, `Pandas`, `Matplotlib`, `Jupyter Notebook`  
-
-- **Live Demo:** [Demo Link](https://colab.research.google.com/drive/1AdGevMypjOROYdtjgmwzJGFNswwUC5mm?usp=sharing)  
-- **Code:** [Project Folder](https://github.com/Erin-Weiss/reinforcement-learning)  
-- **Portfolio Page:** [Link](https://github.com/Erin-Weiss/reinforcement-learning)  
+**Tech:** `FastAPI` · `Uvicorn` · `CatBoost` · `Pydantic` · `Docker` · `Kubernetes` · `GitHub Actions` · `Prometheus` · `Grafana` · `pytest`  
+**Links:** [Live Report](https://erin-weiss.github.io/used-car-price-api/) · [GitHub Repo](https://github.com/Erin-Weiss/used-car-price-api) · [Container Image (GHCR)](https://github.com/Erin-Weiss/used-car-price-api/pkgs/container/used-car-price-api) · [Portfolio Page](https://erin-weiss.github.io/articles/API-Used-Car-Price.html)
 
 ---
 
-### R Real Estate Project  
+### Reinforcement Learning in Python
 
-- **Description:**  
-  An analysis of **U.S. housing trends (2016–2022)** using `Realtor.com` data.  
-  Explores how factors such as **region**, **season**, **square footage**, and **market activity** influence **median listing prices**.  
-  Includes rich visualizations and a **multiple linear regression model** explaining ~95% of price variation.  
+Implements reinforcement learning algorithms to optimize a mobile robot's path through a warehouse environment. Demonstrates exploration vs. exploitation trade-offs, policy optimization, hyperparameter tuning, and reward shaping through interactive code and visualizations.
 
-- **Technologies Used:**  
-  `tidyverse`, `ggplot2`, `lubridate`, `summarytools`, `DT`, `ggpubr`, `HydroTSM`, `descr`, `SemTools`  
-
-- **Live Demo:** [Demo Link](https://erin-weiss.github.io/R-Real-Estate-Project/)  
-- **Code:** [Project Folder](https://github.com/Erin-Weiss/R-Real-Estate-Project)  
-- **Portfolio Page:** [Link](https://erin-weiss.github.io/articles/Real-Estate.html)  
+**Tech:** `Python` · `NumPy` · `pandas` · `Matplotlib` · `Jupyter Notebook`  
+**Links:** [Live Demo (Colab)](https://colab.research.google.com/drive/1AdGevMypjOROYdtjgmwzJGFNswwUC5mm?usp=sharing) · [GitHub Repo](https://github.com/Erin-Weiss/reinforcement-learning) · [Portfolio Page](https://erin-weiss.github.io/articles/RL-Article.html)
 
 ---
 
-### Excel Cleaning & Comparison App  
+### Real Estate Analysis in R
 
-- **Description:**  
-  A **Streamlit web application** for cleaning, standardizing, and comparing **Excel files**, especially messy spreadsheets created from **PDF-to-Excel invoice conversions**.
-  
-  Includes a flexible **General App** for a wide range of invoice-style layouts and a streamlined **Aftermath App** tailored to Aftermath Disaster Recovery’s recurring invoice + monitoring workflows. Users can clean files, compare them using a shared **ID column**, detect missing or mismatched records, and download all results as multi-sheet Excel outputs. A built-in **Tutorial** with sample files and a **Contact** form support onboarding and feedback.  
+Analyzes U.S. housing trends (2016–2022) using Realtor.com data. Explores how region, season, square footage, and market activity influence median listing prices. A multiple linear regression model explains **~95% of price variation**, supported by extensive visualizations.
 
-- **Technologies Used:**  
-  `Python`, `Streamlit`, `pandas`, `openpyxl`, `Pillow`, `requests`, `email_validator`, `captcha`, `streamlit_js_eval`  
-
-- **Live Demo:** [Demo Link](https://excel-cleaning-and-compare-app.streamlit.app/)  
-- **Code:** [Project Folder](https://github.com/Erin-Weiss/Excel-cleaning-and-compare-app)  
-- **Portfolio Page:** [Link](https://erin-weiss.github.io/articles/Excel-Cleaning.html)
+**Tech:** `R` · `tidyverse` · `ggplot2` · `lubridate` · `summarytools` · `DT` · `ggpubr`  
+**Links:** [Live Report](https://erin-weiss.github.io/R-Real-Estate-Project/) · [GitHub Repo](https://github.com/Erin-Weiss/R-Real-Estate-Project) · [Portfolio Page](https://erin-weiss.github.io/articles/Real-Estate.html)
 
 ---
 
-### Michelin Stars in Washington, D.C.  
+### Excel Cleaning & Compare App
 
-- **Description:**  
-  An **interactive Tableau dashboard** that explores the Michelin-starred restaurant landscape in Washington, D.C.  
-  Using a dataset collected in late 2023, this project compares D.C.’s fine dining scene to other global culinary hubs and visualizes trends across **cuisines**, **restaurant locations**, and **Michelin ratings**.  
+A deployed **Streamlit web application** for cleaning, standardizing, and comparing Excel files — built for real-world messy data from PDF-to-Excel invoice conversions. Supports flexible date parsing, forward/backward fill, multi-sheet output, and side-by-side dataset reconciliation. Includes a General App for broad use and an Aftermath App tailored to a specific client's recurring workflows.
 
-  The dashboard includes:  
-  - **Interactive Map:** Hover to view restaurant details (name, cuisine, price, website)  
-  - **Filter Options:** Filter by cuisine, price range, and number of stars  
-  - **Custom Design:** Background and UI built in `Figma` with glassmorphism effects  
+**Tech:** `Python` · `Streamlit` · `pandas` · `openpyxl` · `Pillow` · `requests` · `email_validator`  
+**Links:** [Live App](https://excel-cleaning-and-compare-app.streamlit.app/) · [GitHub Repo](https://github.com/Erin-Weiss/Excel-cleaning-and-compare-app) · [Portfolio Page](https://erin-weiss.github.io/articles/Excel-Cleaning.html)
 
-- **Technologies Used:**  
-  `Tableau`, `Figma`, `HTML`, `CSS`, `Data Visualization Design`, `Interactive Dashboards`  
+---
 
-- **Live Demo:** [Demo Link](https://erin-weiss.github.io/tableau-DC-food-dashboard/)  
-- **Code:** [Project Folder](https://github.com/Erin-Weiss/tableau-DC-food-dashboard)  
-- **Portfolio Page:** [Link](https://erin-weiss.github.io/articles/Tableau-1.html)  
+### Michelin Stars in Washington, D.C.
+
+An interactive **Tableau dashboard** exploring the Michelin-starred restaurant landscape in D.C. Compares the city's fine dining scene to global culinary hubs with interactive maps, cuisine filters, and custom UI design built in Figma with glassmorphism techniques.
+
+**Tech:** `Tableau` · `Figma` · `HTML` · `CSS` · `Data Visualization Design`  
+**Links:** [Live Demo](https://erin-weiss.github.io/tableau-DC-food-dashboard/) · [GitHub Repo](https://github.com/Erin-Weiss/tableau-DC-food-dashboard) · [Portfolio Page](https://erin-weiss.github.io/articles/Tableau-1.html)
 
 ---
 
 <details>
-  <summary><h2>📂 More Projects</h2></summary>
+  <summary><h2>📂 Additional Projects</h2></summary>
 
-### Credit Analysis PCA Project  
+### Credit Analysis PCA
 
-- **Description:**  
-  This project is a **Principal Component Analysis (PCA)** exploring financial and demographic patterns across **400 credit applicants**.  
-  The project analyzes how variables such as **Income**, **Credit Limit**, **Rating**, **Cards**, **Age**, and **Education** relate to one another and contribute to overall variance in applicant profiles.  
+A **Principal Component Analysis** exploring financial and demographic patterns across 400 credit applicants. Reduces dimensionality to reveal underlying behavioral and financial drivers — Income, Credit Limit, Rating, Cards, Age, and Education — that distinguish applicant groups.
 
-  By reducing the dimensionality of the dataset to key components, the analysis reveals underlying behavioral and financial drivers that distinguish applicant groups.
-
-- **Technologies Used:**  
-  `R`, `tidyverse`, `Quarto`, `HTML Reporting`, `Data Visualization`, `PCA`
-
-- **Live Demo:** [Demo Link](https://erin-weiss.github.io/PCA-Credit-Analysis/)  
-- **Code:** [Project Folder](https://github.com/Erin-Weiss/PCA-Credit-Analysis)  
-- **Portfolio Page:** [Link](https://erin-weiss.github.io/articles/credit-pca.html)
+**Tech:** `R` · `tidyverse` · `Quarto` · `PCA` · `Data Visualization`  
+**Links:** [Live Report](https://erin-weiss.github.io/PCA-Credit-Analysis/) · [GitHub Repo](https://github.com/Erin-Weiss/PCA-Credit-Analysis) · [Portfolio Page](https://erin-weiss.github.io/articles/credit-pca.html)
 
 ---
 
-### States & Crime Clustering Project  
+### States & Crime Clustering
 
-- **Description:**  
-  This project is an unsupervised learning analysis of the **USArrests** dataset that uncovers hidden crime-rate patterns across all 50 U.S. states.  
-  The project compares **K-means clustering (k = 2–5)** and **hierarchical clustering**—with and without scaling—to evaluate how Murder, Assault, Rape, and UrbanPop contribute to natural groupings in the data.  
-  The analysis incorporates **WCSS**, the **Elbow Method**, and the **Gap Statistic** to identify an appropriate number of clusters, revealing distinct high, medium, and low-crime state profiles and showing that **urbanization is not a consistent predictor of violent crime**.
+An unsupervised learning analysis of the USArrests dataset, comparing **K-means clustering (k = 2–5)** and **hierarchical clustering** with and without scaling. Uses WCSS, the Elbow Method, and the Gap Statistic to identify natural crime-rate groupings across all 50 U.S. states — finding that **urbanization is not a consistent predictor of violent crime**.
 
-- **Technologies Used:**  
-  `R`, `tidyverse`, `cluster`, `factoextra`,  
-  `K-means`, `Hierarchical Clustering`, `Scaling & Standardization`,  
-  `WCSS Analysis`, `Elbow Method`, `Gap Statistic`,  
-  `Quarto`, `HTML Reporting`, `Data Visualization`
-
-- **Live Demo:** [Demo Link](https://erin-weiss.github.io/Clustering-Analysis-US-Arrests/) 
-- **Code:** [Project Folder](https://github.com/Erin-Weiss/Clustering-Analysis-US-Arrests/tree/main)
-- **Portfolio Page:** [Link](https://erin-weiss.github.io/articles/clustering-project.html)
-
+**Tech:** `R` · `tidyverse` · `cluster` · `factoextra` · `K-means` · `Hierarchical Clustering` · `Quarto`  
+**Links:** [Live Report](https://erin-weiss.github.io/Clustering-Analysis-US-Arrests/) · [GitHub Repo](https://github.com/Erin-Weiss/Clustering-Analysis-US-Arrests) · [Portfolio Page](https://erin-weiss.github.io/articles/clustering-project.html)
 
 </details>
 
 ---
 
-## 🌍 Get in Touch  
+## Technical Skills
 
-I love connecting with people who share a passion for technology and innovation!  
-Feel free to reach out through any of the platforms below:  
+**ML & Modeling**  
+`CatBoost` · `scikit-learn` · `TensorFlow` · `Keras` · `Deep Learning` · `Reinforcement Learning` · `NLP` · `Computer Vision` · `CNNs` · `PCA` · `K-means & Hierarchical Clustering` · `Recommender Systems` · `Time Series Analysis` · `Predictive Modeling` · `Feature Engineering` · `Hyperparameter Tuning` · `Optimization` · `Gurobi`
 
-- **LinkedIn:** [LinkedIn Profile](https://www.linkedin.com/in/erinweiss3/)  
-- **Email:** [erin.michele.weiss@gmail.com](mailto:erin.michele.weiss@gmail.com)  
+**MLOps & Deployment**  
+`FastAPI` · `Docker` · `Kubernetes` · `GitHub Actions (CI/CD)` · `Prometheus` · `Grafana` · `Pydantic` · `Uvicorn` · `pytest`
+
+**Data & Analysis**  
+`Python` · `R` · `SQL` · `pandas` · `NumPy` · `PySpark` · `Apache Spark` · `Matplotlib` · `Seaborn` · `Jupyter` · `Quarto`
+
+**Databases & Data Engineering**  
+`PostgreSQL` · `MySQL` · `Microsoft SQL Server` · `SQLite` · `Hadoop` · `Google Cloud Dataproc` · `Data Warehousing` · `ETL` · `Alteryx` · `SSRS`
+
+**Tools & Platforms**  
+`Git` · `GitHub` · `Bash` · `Streamlit` · `Tableau` · `Google Analytics` · `Anaconda` · `LaTeX` · `Figma` · `HTML` · `CSS` · `JavaScript` · `Excel`
+
+---
+
+## Get in Touch
+
+I love connecting with people who share a passion for data science, machine learning, and technology.  
+Feel free to reach out through any of the platforms below:
+
+- **LinkedIn:** [linkedin.com/in/erinweiss3](https://www.linkedin.com/in/erinweiss3/)
+- **Email:** [erin.michele.weiss@gmail.com](mailto:erin.michele.weiss@gmail.com)
+- **Portfolio:** [erin-weiss.github.io](https://erin-weiss.github.io/index.html)
 
 ---
 
 Thank you for visiting my portfolio!  
-I hope you find something that inspires you. 😊  
+I hope you find something that inspires you. 😊
