@@ -5,7 +5,7 @@
 [![Portfolio](https://img.shields.io/badge/Portfolio-erin--weiss.github.io-blue?style=flat&logo=github)](https://erin-weiss.github.io/index.html)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-erinweiss3-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/erinweiss3/)
 [![Email](https://img.shields.io/badge/Email-erin.michele.weiss%40gmail.com-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:erin.michele.weiss@gmail.com)
-[![Résumé](https://img.shields.io/badge/Résumé-Download_PDF-green?style=flat&logo=googledocs&logoColor=white)](https://drive.google.com/file/d/1eBUVzJnTZ_t7UB1Azzgs1JVbIv-pcj5K/view?usp=sharing)
+[![Résumé](https://img.shields.io/badge/Résumé-Download_PDF-green?style=flat&logo=googledocs&logoColor=white)](https://drive.google.com/file/d/191c2Msghk1dNXZPXrVh-ex0RWGSA3HLl/view?usp=sharing)
 
 ---
 
