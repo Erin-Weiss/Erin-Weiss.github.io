@@ -11,9 +11,9 @@
 
 ## About
 
-I build machine learning systems that go beyond the notebook. My recent work covers the full ML lifecycle: exploratory analysis, feature engineering, model comparison across multiple architectures, and production deployment with containerization, orchestration, monitoring, and CI/CD. I've trained models that predict within ~$1,300 of true market prices across 243k records and deployed them as production APIs with automated testing, health monitoring, and autoscaling infrastructure.
+I build machine learning systems and the infrastructure to deploy them. My recent work covers the full ML lifecycle: exploratory analysis, feature engineering, model comparison across multiple architectures, and deployment with containerization, orchestration, monitoring, and CI/CD. I've trained models that predict within ~$1,300 of true market prices across 243k records and packaged them as production-ready APIs with automated testing, health monitoring, and autoscaling infrastructure.
 
-I'm equally comfortable deep in a feature importance analysis as I am writing Dockerfiles and Kubernetes manifests. I care about building models that are validated, documented, and ready to serve real traffic, not just ones that perform well in a notebook.
+I'm equally comfortable deep in a feature importance analysis as I am writing Dockerfiles and Kubernetes manifests. I care about building models that are validated, documented, and ready to serve real traffic.
 
 **Live portfolio →** [erin-weiss.github.io](https://erin-weiss.github.io/index.html)
 
