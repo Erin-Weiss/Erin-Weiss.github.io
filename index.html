@@ -77,6 +77,16 @@
         object-fit: cover;
       }
 
+      /* ===== Card buttons align across a row regardless of description length ===== */
+      #main > .posts > article {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #main > .posts > article > .actions {
+        margin-top: auto;
+      }
+
     </style>
   </head>
 
@@ -191,6 +201,29 @@
               <ul class="actions special">
                   <li><a href="articles/API-Used-Car-Price.html" class="button">View Project</a></li>
               </ul>
+          </article>
+
+          <article>
+            <header>
+              <h2>
+                <a href="articles/STL-Demo-Notify.html">Demolition Neighbor<br /> Notification</a>
+              </h2>
+            </header>
+            <a
+              href="articles/STL-Demo-Notify.html"
+              class="image fit"
+              aria-label="View Demolition Neighbor Notification Project"
+            >
+              <div class="thumb-ratio">
+                <img src="images/stl-skyline.jpg" alt="The Gateway Arch and downtown St. Louis skyline at dusk, reflected in the Mississippi River" loading="lazy" />
+              </div>
+            </a>
+            <p>
+              Turns a St. Louis demolition site list into door hanger lists, walking checklists, and an interactive parcel map, identifying every occupied structure within 500 feet of each site.
+            </p>
+            <ul class="actions special">
+              <li><a href="articles/STL-Demo-Notify.html" class="button">View Project</a></li>
+            </ul>
           </article>
 
           <article>

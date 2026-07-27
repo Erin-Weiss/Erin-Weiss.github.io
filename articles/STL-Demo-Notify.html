@@ -7,24 +7,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Projects · Used Car Price Prediction API – Erin Weiss</title>
+    <title>Projects · Demolition Notification – Erin Weiss</title>
     <meta
       name="description"
-      content="Erin Weiss – portfolio projects. A CatBoost model served via FastAPI with Docker containerization, Kubernetes orchestration, Prometheus observability, and automated CI/CD."
+      content="Erin Weiss – portfolio projects. A parcel-level buffer analysis that turns a demolition site list into door hanger lists, walking checklists, and an interactive map, embedded below."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="canonical" href="https://erinweiss.dev/articles/API-Used-Car-Price.html" />
+    <link rel="canonical" href="https://erin-weiss.github.io/articles/STL-Demo-Notify.html" />
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="../assets/css/main.css" />
     <noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
 
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://erin-weiss.github.io/articles/API-Used-Car-Price.html" />
-    <meta property="og:image" content="https://erin-weiss.github.io/images/part-2.png" />
-    <meta property="og:title" content="Used Car Price Prediction API · ML Engineering" />
-    <meta property="og:description" content="A CatBoost model served via FastAPI with Docker containerization, Kubernetes orchestration, Prometheus observability, and automated CI/CD." />
+    <meta property="og:url" content="https://erin-weiss.github.io/articles/STL-Demo-Notify.html" />
+    <meta property="og:image" content="https://erin-weiss.github.io/articles/demo_files/map-overview.jpg" />
+    <meta property="og:title" content="Demolition Neighbor Notification for St. Louis" />
+    <meta property="og:description" content="Parcel-level buffer analysis identifying 1,636 notification addresses across a 30-site demolition task, delivered as door hanger lists, walking checklists, and an interactive map." />
 
     <style>
       iframe[data-autosize] {
@@ -119,16 +119,14 @@
       <div id="main">
         <section class="post">
           <header class="major">
-            <h1 class="work">Used Car Price Prediction API</h1>
-            <p class="subtitle">Part 2 of 2 · ML Engineering</p>
-            <p class="subtitle">Takes the CatBoost model from Part 1 and builds the production infrastructure around it: request validation, fuzzy input matching, Docker containerization, Kubernetes orchestration, Prometheus observability, and automated CI/CD.</p>
-            <p class="subtitle"><a href="https://erin-weiss.github.io/articles/Used-Car-Price.html" rel="noopener noreferrer" target="_blank">→ Part 1: Model Development (EDA, feature engineering, model selection)</a></p>
+            <h1 class="work">Demolition Neighbor Notification</h1>
+            <p class="subtitle">Interactive case study embedded below.</p>
           </header>
 
           <div>
             <iframe
-              src="api-page.html"
-              title="Used Car Price Prediction API – embedded report"
+              src="demo-case-study.html"
+              title="Demolition Neighbor Notification – embedded case study"
               loading="eager"
               scrolling="no"
               data-autosize
@@ -170,7 +168,7 @@
               </div>
 
               <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-              <input type="hidden" name="_subject" value="Portfolio contact – API project page" />
+              <input type="hidden" name="_subject" value="Portfolio contact – Projects page" />
             </div>
             <ul class="actions">
               <li><input type="submit" value="Send Message" /></li>
@@ -339,7 +337,7 @@
           });
         }
 
-        /* ===== TOC Bridge: sticky positioning + active-section tracking ===== */
+        /* ===== TOC Bridge: floats the case study TOC on parent scroll ===== */
         function setupTocBridge(iframe) {
           if (!iframe) return;
 
@@ -355,176 +353,77 @@
               if (!doc) return;
             } catch (e) { return; }
 
-            const sidebar = doc.getElementById("quarto-margin-sidebar");
-            if (!sidebar) return;
+            const toc = doc.querySelector("nav.toc-float");
+            if (!toc) return;
 
-            sidebar.style.position = "absolute";
-            sidebar.style.top = "0";
-            sidebar.style.willChange = "transform";
-            sidebar.style.transition = "none";
-            sidebar.style.maxHeight = "none";
+            const links = Array.prototype.slice.call(
+              doc.querySelectorAll("nav.toc-float a[href^='#']")
+            );
+            const sections = links
+              .map((a) => ({ link: a, el: doc.getElementById(a.getAttribute("href").slice(1)) }))
+              .filter((s) => s.el);
 
-            const pageCol = doc.getElementById("quarto-content");
-            if (pageCol) pageCol.style.position = "relative";
-
-            const tocLinks = sidebar.querySelectorAll("a.nav-link[data-scroll-target]");
-            const sectionMap = [];
-            tocLinks.forEach(link => {
-              const target = link.getAttribute("data-scroll-target");
-              const el = doc.querySelector(target);
-              if (el) sectionMap.push({ el, id: target, link });
-            });
-
-            /* --- Collapse toggle UI --- */
-            const tocNav = sidebar.querySelector("#TOC");
-
-            const tocToggle = doc.createElement("div");
-            tocToggle.style.cssText =
-              "display:none; cursor:pointer; padding:8px 14px;" +
-              "border:1px solid #dee2e6; border-radius:4px;" +
-              "background:#fff; font-size:0.875rem; color:#6c757d;" +
-              "user-select:none; white-space:nowrap;" +
-              "box-shadow:0 1px 3px rgba(0,0,0,0.08);";
-
-            const toggleLabel = doc.createElement("span");
-            toggleLabel.textContent = "Table of contents";
-            const toggleArrow = doc.createElement("span");
-            toggleArrow.textContent = " \u25BE";
-            toggleArrow.style.cssText = "color:#ced4da; margin-left:8px; transition:transform 0.2s;";
-            tocToggle.appendChild(toggleLabel);
-            tocToggle.appendChild(toggleArrow);
-            sidebar.insertBefore(tocToggle, tocNav);
-
-            let isCollapsed = false;
-            let manualExpand = false;
-            let expandedHeight = 0;
-
-            tocToggle.addEventListener("click", () => {
-              manualExpand = !manualExpand;
-              tocNav.style.display = manualExpand ? "" : "none";
-              toggleArrow.style.transform = manualExpand ? "rotate(180deg)" : "";
-            });
-
-            /* --- Find wide elements that could overlap the sidebar --- */
-            let wideEls = [];
-
-            function findWideElements() {
-              wideEls = [];
-              const sidebarRect = sidebar.getBoundingClientRect();
-              if (sidebarRect.left <= 0) return;
-
-              const candidates = doc.querySelectorAll(
-                ".cell-output-display, .quarto-figure, figure, " +
-                ".column-page, .column-screen, .column-body-outset, " +
-                "table, .quarto-layout-panel, .datatables"
-              );
-              candidates.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.width > 0 && rect.height > 0 && rect.right > sidebarRect.left - 20) {
-                  wideEls.push(el);
-                }
+            /* Anchors are dead here: the iframe has no scrollable viewport. */
+            doc
+              .querySelectorAll("nav.toc-float a[href^='#'], nav.toc-inline a[href^='#']")
+              .forEach((a) => {
+                a.addEventListener("click", (e) => {
+                  const el = doc.getElementById(a.getAttribute("href").slice(1));
+                  if (!el) return;
+                  e.preventDefault();
+                  const top =
+                    window.scrollY +
+                    iframe.getBoundingClientRect().top +
+                    el.getBoundingClientRect().top -
+                    24;
+                  window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+                });
               });
-            }
 
-            setTimeout(findWideElements, 800);
-            setTimeout(findWideElements, 2000);
-            setTimeout(findWideElements, 4000);
-            window.addEventListener("resize", () => { setTimeout(findWideElements, 200); });
-
-            /* --- Scroll handler --- */
-            let rafId = null;
-
+            let ticking = false;
             function onParentScroll() {
-              if (rafId) return;
-              rafId = requestAnimationFrame(() => {
-                rafId = null;
+              if (ticking) return;
+              ticking = true;
+
+              requestAnimationFrame(() => {
+                ticking = false;
                 try {
+                  /* null while the media query hides the TOC. */
+                  if (toc.offsetParent === null) return;
+
                   const iframeRect = iframe.getBoundingClientRect();
-                  const viewportH = window.innerHeight;
                   const scrollIntoIframe = -iframeRect.top;
-                  const contentH = (pageCol || doc.body).scrollHeight;
+                  const contentH = doc.body.scrollHeight;
 
-                  /* Track the full expanded height so collapse doesn't change overlap calc */
-                  if (!isCollapsed) {
-                    expandedHeight = Math.max(expandedHeight, sidebar.offsetHeight);
-                  }
-                  const checkHeight = expandedHeight || sidebar.offsetHeight;
-
-                  let desiredTop = Math.max(0, scrollIntoIframe + 16);
-                  const maxTop = contentH - checkHeight - 16;
+                  let desiredTop = Math.max(0, scrollIntoIframe + 40);
+                  const maxTop = contentH - toc.offsetHeight - 40;
                   if (maxTop > 0) desiredTop = Math.min(desiredTop, maxTop);
 
-                  if (iframeRect.bottom < 0 || iframeRect.top > viewportH) {
-                    sidebar.style.transform = "translateY(0px)";
+                  if (iframeRect.bottom < 0 || iframeRect.top > window.innerHeight) {
+                    toc.style.transform = "translateY(0px)";
                   } else {
-                    sidebar.style.transform = "translateY(" + desiredTop + "px)";
+                    toc.style.transform = "translateY(" + desiredTop + "px)";
                   }
 
-                  /* Overlap check using the full expanded height, not current */
-                  const sRect = sidebar.getBoundingClientRect();
-                  const buffer = 30;
-                  const fakeTop = sRect.top;
-                  const fakeBottom = sRect.top + checkHeight;
-                  var hasOverlap = false;
-
-                  for (var i = 0; i < wideEls.length; i++) {
-                    var elRect = wideEls[i].getBoundingClientRect();
-                    if (elRect.height === 0 || elRect.width === 0) continue;
-                    if (elRect.right <= sRect.left) continue;
-                    if (elRect.bottom > fakeTop - buffer && elRect.top < fakeBottom + buffer) {
-                      hasOverlap = true;
-                      break;
-                    }
-                  }
-
-                  if (hasOverlap && !isCollapsed) {
-                    isCollapsed = true;
-                    manualExpand = false;
-                    tocNav.style.display = "none";
-                    tocToggle.style.display = "";
-                    toggleArrow.style.transform = "";
-                  } else if (!hasOverlap && isCollapsed) {
-                    isCollapsed = false;
-                    manualExpand = false;
-                    tocNav.style.display = "";
-                    tocToggle.style.display = "none";
-                  }
-
-                  /* Active section detection */
+                  /* Active section, measured in the parent's coordinates. */
                   let activeLink = null;
-                  for (let j = sectionMap.length - 1; j >= 0; j--) {
-                    const rect = sectionMap[j].el.getBoundingClientRect();
-                    const topInParent = rect.top + iframeRect.top;
-                    if (topInParent <= 120) {
-                      activeLink = sectionMap[j].link;
+                  for (let i = sections.length - 1; i >= 0; i--) {
+                    const rect = sections[i].el.getBoundingClientRect();
+                    if (rect.top + iframeRect.top <= 120) {
+                      activeLink = sections[i].link;
                       break;
                     }
                   }
 
-                  tocLinks.forEach(l => l.classList.remove("active"));
-                  if (activeLink) {
-                    activeLink.classList.add("active");
-
-                    let parent = activeLink.parentElement;
-                    while (parent && parent !== sidebar) {
-                      if (parent.tagName === "UL" && parent.classList.contains("collapse")) {
-                        parent.classList.add("show");
-                      }
-                      parent = parent.parentElement;
-                    }
-
-                    sidebar.querySelectorAll("ul.collapse.show").forEach(ul => {
-                      if (!ul.contains(activeLink)) {
-                        ul.classList.remove("show");
-                      }
-                    });
-                  }
+                  links.forEach((l) => l.classList.remove("active"));
+                  if (activeLink) activeLink.classList.add("active");
                 } catch (e) {}
               });
             }
 
             window.addEventListener("scroll", onParentScroll, { passive: true });
             window.addEventListener("resize", onParentScroll, { passive: true });
+            onParentScroll();
             setTimeout(onParentScroll, 500);
             setTimeout(onParentScroll, 1500);
           }

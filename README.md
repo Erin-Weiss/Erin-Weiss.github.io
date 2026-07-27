@@ -39,6 +39,15 @@ Takes the trained CatBoost model from Part 1 and deploys it as a **production-re
 
 ---
 
+### Demolition Neighbor Notification — Geospatial Analysis
+
+Turns a contractor's demolition site list into a complete neighbor notification package, replacing days of parcel-by-parcel lookup with a run that finishes in about a minute. Searches all **126,958 St. Louis parcels** against 500 ft buffers measured from each site's boundary rather than its center, identifying **1,636 notification addresses** across a 30-site project and flagging **134 parcels** whose assessor records contradict themselves for field verification. Delivers door hanger lists, per-site walking checklists ordered the way crews walk, an auditable assumptions log, and a self-contained interactive map. Ships as both a Streamlit web app and a command-line tool running the identical pipeline, validated by 44 tests and ruff linting on every push.
+
+**Tech:** `Python` · `GeoPandas` · `Folium` · `Leaflet.js` · `Streamlit` · `pandas` · `openpyxl` · `GeoParquet` · `pytest` · `ruff` · `GitHub Actions`  
+**Links:** [Live Report](https://erin-weiss.github.io/stl-demo-notify/) · [Live App](https://stl-demo-notify.streamlit.app/) · [GitHub Repo](https://github.com/Erin-Weiss/stl-demo-notify) · [Portfolio Page](https://erin-weiss.github.io/articles/STL-Demo-Notify.html)
+
+---
+
 ### Reinforcement Learning in Python
 
 Implements reinforcement learning algorithms to optimize a mobile robot's path through a warehouse environment. Demonstrates exploration vs. exploitation trade-offs, policy optimization, hyperparameter tuning, and reward shaping through interactive code and visualizations.

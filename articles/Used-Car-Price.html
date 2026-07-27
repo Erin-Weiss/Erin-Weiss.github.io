@@ -282,7 +282,12 @@
             });
           }
 
-          iframe.addEventListener("load", () => {
+          let started = false;
+
+          function start() {
+            if (started) return; // never observe the same document twice
+            started = true;
+
             setHeight();
 
             try {
@@ -318,7 +323,15 @@
             setTimeout(setHeight, 300);
             setTimeout(setHeight, 1000);
             setTimeout(setHeight, 2000);
-          });
+          }
+
+          iframe.addEventListener("load", start);
+
+          // load may already have fired: a small iframe can beat this script.
+          try {
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
+            if (doc && doc.readyState === "complete") start();
+          } catch (e) {}
 
           window.addEventListener("resize", () => {
             locked = false;
@@ -330,7 +343,12 @@
         function setupTocBridge(iframe) {
           if (!iframe) return;
 
-          iframe.addEventListener("load", () => {
+          let started = false;
+
+          function start() {
+            if (started) return; // never bridge the same document twice
+            started = true;
+
             let doc;
             try {
               doc = iframe.contentDocument || iframe.contentWindow.document;
@@ -509,7 +527,15 @@
             window.addEventListener("resize", onParentScroll, { passive: true });
             setTimeout(onParentScroll, 500);
             setTimeout(onParentScroll, 1500);
-          });
+          }
+
+          iframe.addEventListener("load", start);
+
+          // Same load-event race as setupAutosize above.
+          try {
+            const d = iframe.contentDocument || iframe.contentWindow.document;
+            if (d && d.readyState === "complete") start();
+          } catch (e) {}
         }
 
         document.addEventListener("DOMContentLoaded", function () {

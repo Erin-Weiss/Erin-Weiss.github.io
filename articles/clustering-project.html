@@ -280,7 +280,12 @@
             });
           }
 
-          iframe.addEventListener("load", () => {
+          let started = false;
+
+          function start() {
+            if (started) return; // never observe the same document twice
+            started = true;
+
             setHeight();
 
             try {
@@ -316,7 +321,15 @@
             setTimeout(setHeight, 300);
             setTimeout(setHeight, 1000);
             setTimeout(setHeight, 2000);
-          });
+          }
+
+          iframe.addEventListener("load", start);
+
+          // load may already have fired: a small iframe can beat this script.
+          try {
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
+            if (doc && doc.readyState === "complete") start();
+          } catch (e) {}
 
           window.addEventListener("resize", () => {
             locked = false;
@@ -324,9 +337,209 @@
           });
         }
 
+        /* ===== TOC Bridge: sticky positioning + active-section tracking ===== */
+        function setupTocBridge(iframe) {
+          if (!iframe) return;
+
+          let started = false;
+
+          function start() {
+            if (started) return; // never bridge the same document twice
+            started = true;
+
+            let doc;
+            try {
+              doc = iframe.contentDocument || iframe.contentWindow.document;
+              if (!doc) return;
+            } catch (e) { return; }
+
+            const sidebar = doc.getElementById("quarto-margin-sidebar");
+            if (!sidebar) return;
+
+            sidebar.style.position = "absolute";
+            sidebar.style.top = "0";
+            sidebar.style.willChange = "transform";
+            sidebar.style.transition = "none";
+            sidebar.style.maxHeight = "none";
+
+            const pageCol = doc.getElementById("quarto-content");
+            if (pageCol) pageCol.style.position = "relative";
+
+            const tocLinks = sidebar.querySelectorAll("a.nav-link[data-scroll-target]");
+            const sectionMap = [];
+            tocLinks.forEach(link => {
+              const target = link.getAttribute("data-scroll-target");
+              const el = doc.querySelector(target);
+              if (el) sectionMap.push({ el, id: target, link });
+            });
+
+            /* --- Collapse toggle UI --- */
+            const tocNav = sidebar.querySelector("#TOC");
+
+            const tocToggle = doc.createElement("div");
+            tocToggle.style.cssText =
+              "display:none; cursor:pointer; padding:8px 14px;" +
+              "border:1px solid #dee2e6; border-radius:4px;" +
+              "background:#fff; font-size:0.875rem; color:#6c757d;" +
+              "user-select:none; white-space:nowrap;" +
+              "box-shadow:0 1px 3px rgba(0,0,0,0.08);";
+
+            const toggleLabel = doc.createElement("span");
+            toggleLabel.textContent = "Table of contents";
+            const toggleArrow = doc.createElement("span");
+            toggleArrow.textContent = " \u25BE";
+            toggleArrow.style.cssText = "color:#ced4da; margin-left:8px; transition:transform 0.2s;";
+            tocToggle.appendChild(toggleLabel);
+            tocToggle.appendChild(toggleArrow);
+            sidebar.insertBefore(tocToggle, tocNav);
+
+            let isCollapsed = false;
+            let manualExpand = false;
+            let expandedHeight = 0;
+
+            tocToggle.addEventListener("click", () => {
+              manualExpand = !manualExpand;
+              tocNav.style.display = manualExpand ? "" : "none";
+              toggleArrow.style.transform = manualExpand ? "rotate(180deg)" : "";
+            });
+
+            /* --- Find wide elements that could overlap the sidebar --- */
+            let wideEls = [];
+
+            function findWideElements() {
+              wideEls = [];
+              const sidebarRect = sidebar.getBoundingClientRect();
+              if (sidebarRect.left <= 0) return;
+
+              const candidates = doc.querySelectorAll(
+                ".cell-output-display, .quarto-figure, figure, " +
+                ".column-page, .column-screen, .column-body-outset, " +
+                "table, .quarto-layout-panel, .datatables"
+              );
+              candidates.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.width > 0 && rect.height > 0 && rect.right > sidebarRect.left - 20) {
+                  wideEls.push(el);
+                }
+              });
+            }
+
+            setTimeout(findWideElements, 800);
+            setTimeout(findWideElements, 2000);
+            setTimeout(findWideElements, 4000);
+            window.addEventListener("resize", () => { setTimeout(findWideElements, 200); });
+
+            /* --- Scroll handler --- */
+            let rafId = null;
+
+            function onParentScroll() {
+              if (rafId) return;
+              rafId = requestAnimationFrame(() => {
+                rafId = null;
+                try {
+                  const iframeRect = iframe.getBoundingClientRect();
+                  const viewportH = window.innerHeight;
+                  const scrollIntoIframe = -iframeRect.top;
+                  const contentH = (pageCol || doc.body).scrollHeight;
+
+                  /* Track the full expanded height so collapse doesn't change overlap calc */
+                  if (!isCollapsed) {
+                    expandedHeight = Math.max(expandedHeight, sidebar.offsetHeight);
+                  }
+                  const checkHeight = expandedHeight || sidebar.offsetHeight;
+
+                  let desiredTop = Math.max(0, scrollIntoIframe + 16);
+                  const maxTop = contentH - checkHeight - 16;
+                  if (maxTop > 0) desiredTop = Math.min(desiredTop, maxTop);
+
+                  if (iframeRect.bottom < 0 || iframeRect.top > viewportH) {
+                    sidebar.style.transform = "translateY(0px)";
+                  } else {
+                    sidebar.style.transform = "translateY(" + desiredTop + "px)";
+                  }
+
+                  /* Overlap check using the full expanded height, not current */
+                  const sRect = sidebar.getBoundingClientRect();
+                  const buffer = 30;
+                  const fakeTop = sRect.top;
+                  const fakeBottom = sRect.top + checkHeight;
+                  var hasOverlap = false;
+
+                  for (var i = 0; i < wideEls.length; i++) {
+                    var elRect = wideEls[i].getBoundingClientRect();
+                    if (elRect.height === 0 || elRect.width === 0) continue;
+                    if (elRect.right <= sRect.left) continue;
+                    if (elRect.bottom > fakeTop - buffer && elRect.top < fakeBottom + buffer) {
+                      hasOverlap = true;
+                      break;
+                    }
+                  }
+
+                  if (hasOverlap && !isCollapsed) {
+                    isCollapsed = true;
+                    manualExpand = false;
+                    tocNav.style.display = "none";
+                    tocToggle.style.display = "";
+                    toggleArrow.style.transform = "";
+                  } else if (!hasOverlap && isCollapsed) {
+                    isCollapsed = false;
+                    manualExpand = false;
+                    tocNav.style.display = "";
+                    tocToggle.style.display = "none";
+                  }
+
+                  /* Active section detection */
+                  let activeLink = null;
+                  for (let j = sectionMap.length - 1; j >= 0; j--) {
+                    const rect = sectionMap[j].el.getBoundingClientRect();
+                    const topInParent = rect.top + iframeRect.top;
+                    if (topInParent <= 120) {
+                      activeLink = sectionMap[j].link;
+                      break;
+                    }
+                  }
+
+                  tocLinks.forEach(l => l.classList.remove("active"));
+                  if (activeLink) {
+                    activeLink.classList.add("active");
+
+                    let parent = activeLink.parentElement;
+                    while (parent && parent !== sidebar) {
+                      if (parent.tagName === "UL" && parent.classList.contains("collapse")) {
+                        parent.classList.add("show");
+                      }
+                      parent = parent.parentElement;
+                    }
+
+                    sidebar.querySelectorAll("ul.collapse.show").forEach(ul => {
+                      if (!ul.contains(activeLink)) {
+                        ul.classList.remove("show");
+                      }
+                    });
+                  }
+                } catch (e) {}
+              });
+            }
+
+            window.addEventListener("scroll", onParentScroll, { passive: true });
+            window.addEventListener("resize", onParentScroll, { passive: true });
+            setTimeout(onParentScroll, 500);
+            setTimeout(onParentScroll, 1500);
+          }
+
+          iframe.addEventListener("load", start);
+
+          // Same load-event race as setupAutosize above.
+          try {
+            const d = iframe.contentDocument || iframe.contentWindow.document;
+            if (d && d.readyState === "complete") start();
+          } catch (e) {}
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
           const iframe = document.querySelector("iframe[data-autosize]");
           setupAutosize(iframe);
+          setupTocBridge(iframe);
         });
       })();
 

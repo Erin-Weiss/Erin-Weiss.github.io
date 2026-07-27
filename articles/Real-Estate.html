@@ -280,7 +280,12 @@
             });
           }
 
-          iframe.addEventListener("load", () => {
+          let started = false;
+
+          function start() {
+            if (started) return; // never observe the same document twice
+            started = true;
+
             setHeight();
 
             try {
@@ -316,7 +321,15 @@
             setTimeout(setHeight, 300);
             setTimeout(setHeight, 1000);
             setTimeout(setHeight, 2000);
-          });
+          }
+
+          iframe.addEventListener("load", start);
+
+          // load may already have fired: a small iframe can beat this script.
+          try {
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
+            if (doc && doc.readyState === "complete") start();
+          } catch (e) {}
 
           window.addEventListener("resize", () => {
             locked = false;
