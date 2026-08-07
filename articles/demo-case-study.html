@@ -122,13 +122,13 @@
   }
 
   h2.part {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink-3);
     border-top: 1px solid var(--line);
     padding-top: 34px;
-    margin: 44px 0 4px;
+    margin: 52px 0 18px;
   }
   h2.section { font-size: 1.45rem; color: var(--navy); margin: 34px 0 10px; line-height: 1.25; scroll-margin-top: 24px; }
   h3 { font-size: 1.05rem; color: var(--ink); margin: 24px 0 6px; }
@@ -157,11 +157,26 @@
     padding: 1px 5px;
   }
 
-  .flow2 { display: flex; align-items: center; gap: 10px; margin: 6px 0 10px; }
-  .flow2 .inputs { display: flex; flex-direction: column; gap: 8px; flex: 0 0 150px; width: 150px; }
-  .flow2 .inputs .step { flex: 1 1 auto; min-width: 0; font-size: 0.78rem; }
-  .flow2 .stages { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; flex: 1 1 auto; }
+  .flow2 { display: flex; align-items: flex-start; gap: 10px; margin: 6px 0 22px; }
+  .flow2 .inputgroup { flex: 0 0 auto; display: flex; align-items: center; gap: 10px; }
+  .flow2 .inputs { width: 150px; display: grid; grid-auto-rows: 1fr; gap: 8px; }
+  .flow2 .inputs .step { min-width: 0; font-size: 0.78rem; }
+  /* Its own grid so the four boxes stretch to each other, not to the input column. */
+  .flow2 .stages {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    align-items: stretch;
+    gap: 10px;
+    /* Centres the stage row on the input pair. CSS cannot align to a grid's first
+       row, so this is half the height difference between the two columns and
+       needs retuning if either one's text rewraps. */
+    margin-top: 55px;
+  }
   .step {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: var(--tile);
     border: 1px solid var(--line);
     border-radius: 8px;
@@ -169,17 +184,23 @@
     font-size: 0.82rem;
     color: var(--ink-2);
     text-align: center;
-    flex: 1 1 130px;
     min-width: 118px;
   }
   .step b { display: block; color: var(--navy); font-size: 0.9rem; margin-bottom: 3px; }
-  .arrow { align-self: center; color: var(--ink-3); font-size: 1.1rem; flex: 0 0 auto; text-align: center; }
-  @media (max-width: 620px) {
+  .step.optional { border: 1px dashed var(--ink-3); background: #fff; }
+  /* Publish shares the Deliverables column so both boxes get the same width. */
+  .flow2 .stages .arrow.down { grid-column: 7; grid-row: 2; transform: rotate(90deg); }
+  .flow2 .stages .step.optional { grid-column: 7; grid-row: 3; }
+  .arrow { align-self: center; color: var(--ink-3); font-size: 1.1rem; text-align: center; }
+  /* The fixed seven-column row cannot wrap, so stack it before it would overflow. */
+  @media (max-width: 820px) {
     .flow2 { flex-direction: column; align-items: stretch; }
-    .flow2 .inputs { width: auto; flex: 1 1 auto; }
+    .flow2 .inputgroup { flex-direction: column; align-items: stretch; }
+    .flow2 .inputs { width: auto; }
     .flow2 .inputs .step { font-size: 0.82rem; }
-    .flow2 .stages { flex-direction: column; }
+    .flow2 .stages { grid-template-columns: 1fr; margin-top: 0; }
     .flow2 .arrow { transform: rotate(90deg); }
+    .flow2 .stages .arrow.down, .flow2 .stages .step.optional { grid-column: 1; grid-row: auto; }
   }
 
   .codewrap { position: relative; }
@@ -272,6 +293,8 @@
     <li><a href="#approach">The Approach</a></li>
     <li><a href="#deliverables">The Deliverables</a></li>
     <li><a href="#map">The Map</a></li>
+    <li><a href="#publish">Publishing the Map</a></li>
+    <li><a href="#app">The Web App</a></li>
     <li><a href="#run">Run It Yourself</a></li>
   </ol>
   <div class="part-label">Part 2</div>
@@ -283,6 +306,9 @@
     <li><a href="#walk">The Skipped Square Root</a></li>
     <li><a href="#mapeng">Map Engineering</a></li>
     <li><a href="#production">Production Details</a></li>
+    <li><a href="#keys">Publishing Safely</a></li>
+    <li><a href="#tests">How It Is Tested</a></li>
+    <li><a href="#external">Testing an External Service</a></li>
     <li><a href="#validation">Validating the Refactor</a></li>
     <li><a href="#future">Future Work</a></li>
   </ol>
@@ -311,6 +337,8 @@
     <li><a href="#approach">The Approach</a></li>
     <li><a href="#deliverables">The Deliverables</a></li>
     <li><a href="#map">The Interactive Map</a></li>
+    <li><a href="#publish">Publishing the Map</a></li>
+    <li><a href="#app">The Web App</a></li>
     <li><a href="#run">Run It Yourself</a></li>
     <li><a href="#pipeline">Assembling the Parcel Table</a></li>
     <li><a href="#buffers">The Buffer That Only Looks Like a Circle</a></li>
@@ -319,6 +347,9 @@
     <li><a href="#walk">The Square Root the Walk Skips</a></li>
     <li><a href="#mapeng">The Map's Invisible Engineering</a></li>
     <li><a href="#production">Production Details</a></li>
+    <li><a href="#keys">Publishing Without Handing Out Keys</a></li>
+    <li><a href="#tests">How It Is Tested</a></li>
+    <li><a href="#external">Testing Against a Service You Do Not Control</a></li>
     <li><a href="#validation">Validating the Refactor</a></li>
     <li><a href="#future">Future Work</a></li>
   </ol>
@@ -347,12 +378,14 @@
 <p>The analysis was built around decisions the client could stand behind, each confirmed rather than assumed.</p>
 <p><strong>The 500 feet measures from the parcel boundary.</strong> The buffer extends from the edge of the demolition parcel, not from its center, a rule confirmed with the client before the first list was delivered. A center-measured buffer would quietly shrink coverage around large lots, which is exactly where a missed notification would be hardest to defend.</p>
 <p><strong>Parcels with contradictory records are flagged for review in the field.</strong> A parcel is excluded from the notification list when the assessor's records show no buildings on it. But assessor data lags reality, and some records contradict themselves. A lot can have no buildings on file while its vacancy flag reads N or its improvement value is greater than zero. Those parcels go onto a field review list that names the exact conflict for each one. The program produced 134 of them, and field crews resolve each at the door rather than the office resolving them by assumption.</p>
-<p><strong>Both print totals are reported, because the correct one depends on the demolition schedule.</strong> Every address gets a suggested hanger count from the assessor's dwelling unit count, never less than one. If all 30 sites are noticed together, 2,598 hangers cover every address once. If sites are demolished on separate schedules, each event triggers its own notification, and an address near three sites needs three hangers, for a total of 3,948. When only some sites share a schedule, they can be grouped, so overlaps within a group count once and overlaps across groups count separately. The tool recomputes the total for any declared grouping, so the client can ask what the count becomes if sites 1 and 13 go together and get the answer from a rerun. The schedule is the client's decision, so the analysis reports both totals and the client orders the quantity that matches the demolition calendar, with the overlap already counted.</p>
+<p><strong>The print total follows the client's schedule.</strong> Two totals are reported by default and grouping produces a third, because the right quantity depends on the demolition calendar. Every address gets a suggested hanger count from the assessor's dwelling unit count, never less than one. If all 30 sites are noticed together, 2,598 hangers cover every address once. If sites are demolished on separate schedules, each event triggers its own notification, and an address near three sites needs three hangers, for a total of 3,948. When only some sites share a schedule, they can be grouped, so overlaps within a group count once and overlaps across groups count separately. The tool recomputes the total for any declared grouping, so the client can ask what the count becomes if sites 1 and 13 go together and get the answer from a rerun. The schedule is the client's decision, so the analysis reports both totals and the client orders the quantity that matches the demolition calendar, with the overlap already counted.</p>
 <p><strong>Checklists are ordered the way crews walk.</strong> Each site gets a printable checklist sorted nearest street first, then house number within each street, so a crew works one street at a time instead of following a spreadsheet sorted alphabetically. The method is documented in the deliverables as a heuristic rather than an optimized route.</p>
+<p><strong>Every package says how fresh its data is.</strong> City parcel records change between rounds, so each deliverable records the date the city published the data behind it, read from the city's own server rather than from when the download happened. A run whose parcel data is months older than its own run date is visible at a glance in the assumptions log, which is usually the prompt to refresh before anything goes out.</p>
+<p><strong>The map reaches the field as a link.</strong> A phone cannot usefully open a 3 MB HTML attachment from an email, so before publishing there was no straightforward way to get the map onto the device a crew actually carries. The map now publishes to a link, and a QR code goes onto the printed packet the crew already has in hand.</p>
 <p><strong>Every assumption is written down.</strong> Each run ships with an assumptions log stating the buffer rule, the structure filter, the hanger policy, and every other judgment call in plain language. When the client forwards a list to a city inspector or a subcontractor, the methodology travels with it.</p>
 
 <h2 class="section" id="deliverables">The Deliverables</h2>
-<p>The client received seven files covering all angles:</p>
+<p>The client received seven files covering all angles, and a published map adds an eighth:</p>
 <ul class="deliverables">
   <li><strong><code>doorhanger_list.csv</code></strong> · The master list of 1,636 unique addresses, one row each, sorted street by street. Each row carries the address and ZIP, building and dwelling unit counts, the land use code with the city's official description, the vacancy and improvement fields, the suggested hanger count, every demolition site the address is near, and the number of separate notifications it would need.</li>
   <li><strong><code>doorhanger_list.xlsx</code></strong> · One workbook holding four sheets:
@@ -364,37 +397,52 @@
     </ul>
   </li>
   <li><strong><code>field_review_list.csv</code></strong> · The 134 flagged parcels as a standalone file, each naming the specific conflicting assessor fields, ready to hand to a crew for door-by-door verification.</li>
-  <li><strong><code>site_checklists.xlsx</code></strong> · Printable walking checklists, one sheet per site, 30 in this round. Each sheet opens with a header naming the site address and APN, its address and hanger totals, and the walking-order method, followed by the checklist itself: a done column, the walking order, hanger counts, land use, and distance, with that site's field review parcels listed underneath. A summary sheet totals addresses, hangers, and review parcels per site.</li>
+  <li><strong><code>site_checklists.xlsx</code></strong> · Printable walking checklists, one sheet per site, 30 in this round. Each sheet opens with a header naming the site address and APN, its address and hanger totals, and the walking-order method, followed by the checklist itself: a done column, the walking order, hanger counts, land use, and distance, with that site's field review parcels listed underneath. A summary sheet totals addresses, hangers, and review parcels per site. When sites are grouped for a shared demolition schedule, that summary also carries the grouped total, so the workbook and the assumptions log never disagree. When the map is published, the summary gains the QR code and a clickable link, and every per-site sheet gains the link at the top.</li>
   <li><strong><code>match_report.txt</code></strong> · How each of the 30 client sites matched a city parcel record, including which ID field matched, so the link between the client's list and the city's records is auditable.</li>
-  <li><strong><code>assumptions_log.txt</code></strong> · The run parameters, the headline totals, and the full numbered methodology in plain language.</li>
+  <li><strong><code>assumptions_log.txt</code></strong> · The run parameters, the date the city published the parcel data behind them, the headline totals, and the full numbered methodology in plain language. A published map adds its link here too.</li>
   <li><strong><code>demo_notification_map.html</code></strong> · The interactive map below, a single file the client can open in any browser and share with anyone.</li>
+  <li><strong><code>notification_map_qr.png</code></strong> · Written only when the map is published. A print-sized QR code that opens the live map, also placed on the checklist summary page.</li>
 </ul>
 
 <h2 class="section" id="map">The Interactive Map</h2>
-<p>Every site is a toggleable layer, so a crew lead can display only the sites scheduled for a given day. Parcels show their address, hanger count, and land use on hover, orange parcels are field review flags, and the search box finds any address in the program, whether a notification parcel, a demolition site, or a field review flag. The map below is the actual deliverable from this engagement, embedded here to explore.</p>
+<p>Every site is a toggleable layer, so a crew lead can display only the sites scheduled for a given day. Parcels show their address, hanger count, and land use on hover, orange parcels are field review flags, and the search box finds any address in the program, whether a notification parcel, a demolition site, or a field review flag, in the city's form or in the form the client's own list used. The map below is the actual deliverable from this engagement, embedded here to explore.</p>
 <iframe class="mapframe" src="demo_files/map.html" title="Interactive notification map for all 30 demolition sites" loading="lazy"></iframe>
 <p class="mapnote">Best explored on a larger screen. <a href="demo_files/map.html" target="_blank" rel="noopener">Open the map full screen</a>.</p>
 
-<h2 class="section" id="run">Run It Yourself</h2>
-<p>The engagement was generalized to run on any site list, two ways. The web app takes an uploaded list and returns the full package in the browser. The command-line tool runs the identical pipeline for scripted or repeat work.</p>
+<h2 class="section" id="publish">Publishing the Map</h2>
+<p>A 3 MB HTML file is awkward to get onto a phone at a job site. One command puts the finished map on a public link instead, and prints a scannable QR code onto the paperwork the crew already carries.</p>
+<p>The three places it lands do different jobs. The summary page of the checklist workbook gets the QR code and a clickable link side by side. Every per-site sheet gets the link at the top, so a single printed page still carries it. The assumptions log records it as well, so the methodology and the map travel together. The QR code is also saved on its own as an image sized for print.</p>
+<p>A crew lead scans the packet in their hand and the map opens on their phone, with no file to email or copy across.</p>
+<img class="appshot" style="max-width:190px;display:block;margin:18px auto 6px;" src="demo_files/notification-map-qr.png" alt="QR code that opens the published notification map">
+<p class="mapnote" style="text-align:center;">The code from this engagement's checklists. Scanning it opens the map above.</p>
+<p>The site name carries the run date, so a job in July and a job in October each keep their own link and the earlier round's map stays live as a record of what was notified. The link is unlisted but not password protected, and the assumptions log that travels with the package says so.</p>
+<p>The map above is published at <a href="https://stl-demo-notify-2026-08-06.netlify.app" target="_blank" rel="noopener">stl-demo-notify-2026-08-06.netlify.app</a>.</p>
+
+<h2 class="section" id="app">The Web App</h2>
+<p>Aftermath can send a list and get the finished package back. They also received an app, so they can run a list themselves, change the buffer distance, try a different schedule grouping, and download everything without waiting on anyone. The same app is public, so anyone can try it on the sample data.</p>
+<p>Publishing normally requires your own hosting account and an access token, a fair ask for a developer and an unreasonable one for a client who just wants a link. Instead, Aftermath was given a password, so they can publish through the app without creating an account or handling a credential of their own. Everyone else publishes on their own account, so a stranger using the public app cannot spend the operator's allowance.</p>
 <a href="https://stl-demo-notify.streamlit.app/" target="_blank" rel="noopener"><img class="appshot" src="demo_files/app-overview.jpg" alt="The web app showing the notification map and headline totals for a 30-site run"></a>
-<p class="mapnote"><a href="https://stl-demo-notify.streamlit.app/" target="_blank" rel="noopener">Open the live app in a new tab</a> to upload a site list and download the results. The screenshot reflects a run on current city data, so its totals differ slightly from the delivered figures. The app sleeps when idle and can take a few seconds to wake.</p>
-<p>To run it locally, or to script repeat work, install the command-line tool. The parcel cache is committed, so a clone runs immediately.</p>
+<p class="mapnote"><a href="https://stl-demo-notify.streamlit.app/" target="_blank" rel="noopener">Open the live app in a new tab</a> to upload a site list and download the results. The screenshot reflects a run on updated July 2026 city data, so its totals differ slightly from the delivered figures because parcel records change over time. The app sleeps when idle and can take a few seconds to wake.</p>
+
+<h2 class="section" id="run">Run It Yourself</h2>
+<p>The same pipeline runs from the command line, for scripted or repeat work. The parcel cache is committed, so a clone runs immediately.</p>
 <pre><code>git clone https://github.com/Erin-Weiss/stl-demo-notify.git
 cd stl-demo-notify &amp;&amp; pip install -e ".[dev]"
 stl-demo-notify run --input your_sites.csv --output-dir output/</code></pre>
-<p>Rebuilding the cache from fresh city data is a single command, <code>stl-demo-notify prepare-data --force</code>.</p>
+<p>Rebuilding the cache from fresh city data is a single command, <code>stl-demo-notify prepare-data --force</code>. Adding <code>--publish</code> to a run puts the finished map on a link and writes the QR code alongside the other deliverables. The <a href="https://github.com/Erin-Weiss/stl-demo-notify#readme">README</a> covers the rest of the command line, including schedule grouping, column overrides, and the publishing flags.</p>
 
 <h2 class="part">Part 2 · Engineering the Analysis</h2>
 <p>The original deliverable was a script written under a same-day deadline. This section documents the engineering in the generalized tool, focusing on the design decisions that do not show up in a feature list.</p>
 <p>The tool runs as a pipeline. The client's list and the city's data enter on the left, and the finished deliverables come out on the right. Each stage below gets its own section.</p>
 
 <div class="flow2">
-  <div class="inputs">
-    <div class="step"><b>City parcel data</b>three files: shapes, land records, vocabulary</div>
-    <div class="step"><b>Client site list</b>CSV or Excel, any columns</div>
+  <div class="inputgroup">
+    <div class="inputs">
+      <div class="step"><b>City parcel data</b>three files: shapes, land records, vocabulary</div>
+      <div class="step"><b>Client site list</b>CSV or Excel, any columns</div>
+    </div>
+    <div class="arrow">→</div>
   </div>
-  <div class="arrow">→</div>
   <div class="stages">
     <div class="step"><b>Match</b>APN cascade + address fallback</div>
     <div class="arrow">→</div>
@@ -403,24 +451,29 @@ stl-demo-notify run --input your_sites.csv --output-dir output/</code></pre>
     <div class="step"><b>Filter &amp; totals</b>structure filter, field review, hangers</div>
     <div class="arrow">→</div>
     <div class="step"><b>Deliverables</b>lists, checklists, logs, map</div>
+    <div class="arrow down">→</div>
+    <div class="step optional"><b>Publish</b>optional: live link and QR code</div>
   </div>
 </div>
 
 <h2 class="section" id="pipeline">Assembling the Parcel Table</h2>
 <p>The city publishes geometry and attributes as separate downloads. The parcel shapes file carries polygons for 126,958 parcels with almost no descriptive fields. The land records file carries the assessor's attributes, site address, building and unit counts, land use code, vacancy flag, and improvement value, with no geometry. The two are joined on a shared parcel handle to make one working table, and a third download, the city's official Assessor Land Use vocabulary, supplies the text descriptions for the numeric land use codes.</p>
-<p>Land use is where the original script guessed. It labeled codes from a hand-built dictionary, with several entries marked as unverified. The tool now downloads the official vocabulary, so code 5811 resolves to the city's own label, FAST FOODS, and a code missing from the table falls back to a labeled placeholder instead of raising an error.</p>
-<p>Matching the client's list to this table is where identifiers get difficult. A client site is matched against four of the table's ID columns in priority order, and those columns do not agree on what an ID looks like. ASRPARCEL is text with leading zeros, HANDLE is plain text, PARCEL10 is an integer, and PARCEL is a floating-point number, so parcel 5 is stored as 5.0. The client's own APN arrives from a spreadsheet as yet another type. Comparing a float 5.0 against an integer 5 against the text "5" matches nothing until each is reduced to one canonical form. Every identifier on both sides passes through a single normalizer first:</p>
+<p>Land use is where the original script worked from a hand-built lookup, good enough to deliver but with a handful of codes it could not confirm. It labeled codes from a hand-built dictionary, with several entries marked as unverified. The tool now downloads the official vocabulary, so code 5811 resolves to the city's own label, FAST FOODS, and a code missing from the table falls back to a labeled placeholder instead of raising an error.</p>
+<p>Matching the client's list to the joined parcel table is where identifiers get difficult. A client site is matched against four of the table's ID columns in priority order, and those columns do not agree on what an ID looks like. ASRPARCEL is text with leading zeros, HANDLE is plain text, PARCEL10 is an integer, and PARCEL is a floating-point number, so parcel 5 is stored as 5.0. The client's own APN arrives from a spreadsheet as yet another type. Comparing a float 5.0 against an integer 5 against the text "5" matches nothing until each is reduced to one canonical form. Every identifier on both sides passes through a single normalizer first:</p>
 <pre><code><span class="k">def</span> norm_id(value: <span class="k">object</span>) -&gt; <span class="k">str</span>:
     <span class="k">if</span> value <span class="k">is None or</span> (<span class="k">isinstance</span>(value, <span class="k">float</span>) <span class="k">and</span> pd.isna(value)):
         <span class="k">return</span> <span class="s">""</span>
     s = re.sub(<span class="s">r"\.0+$"</span>, <span class="s">""</span>, <span class="k">str</span>(value).strip())
     <span class="k">return</span> re.sub(<span class="s">r"[^0-9]"</span>, <span class="s">""</span>, s)</code></pre>
 <p>It drops a trailing <code>.0</code>, strips any non-digit characters, and returns digits only, so the float <code>5.0</code>, the integer <code>5</code>, and a stray <code>"5 "</code> all become <code>"5"</code>. Leading zeros are preserved, because they are significant in the ASRPARCEL column. Without this step, equivalent IDs fail to match and parcels drop out of the results with no error raised.</p>
-<p>A <code>prepare-data</code> command does the downloading, joining, and normalizing once, caching the result as GeoParquet, a columnar format that stores the geometry and attributes together. The cache loads in about two seconds, and analysis runs never touch the network, so a rerun works identically with no internet connection at all.</p>
+<p>A <code>prepare-data</code> command does the downloading, joining, and normalizing once, caching the result as GeoParquet, a columnar format that stores the geometry and attributes together. The cache loads in about two seconds, and the analysis itself never touches the network, so a rerun works identically with no internet connection. Publishing is the one optional step that needs one.</p>
 
 <h2 class="section" id="buffers">The Buffer That Only Looks Like a Circle</h2>
 <p>The notification zones on the map look like circles, but they are not. Buffering a polygon pushes every edge outward and rounds the corners, producing an inflated version of the parcel's own shape. For one rectangular lot in this file, the 500 foot buffer measured 347.5 by 334.6 meters, visibly close to round but 13 meters off square. The distinction matters because it preserves the client-confirmed rule that distance measures from the parcel boundary. A true circle drawn from the parcel center would be simpler to compute and wrong at the margins.</p>
 <p>All distance math runs in EPSG 26996, the Missouri East projected coordinate system, where coordinates are in meters and Euclidean distance is accurate. Latitude and longitude cannot support that arithmetic, because a degree of longitude covers less ground the farther it sits from the equator. Coordinates convert back to latitude and longitude only at the end, for the web map.</p>
+
+<img class="appshot" src="demo_files/map-tooltip.jpg" alt="Zoomed map view showing a demolition parcel, its 500 ft notification zone, and a parcel tooltip">
+<p class="mapnote">A demolition parcel and its notification zone up close, with the neighbouring parcels the buffer actually caught.</p>
 
 <h2 class="section" id="search">Searching 126,958 Parcels in Two Passes</h2>
 <p>Exact polygon intersection is expensive. Running it between every buffer and every one of 126,958 parcels would give the right answer slowly. The search instead runs in two passes. A spatial index answers a cheap approximate question first, which parcels' bounding boxes overlap this buffer's bounding box, and the expensive exact geometry runs only on that shortlist:</p>
@@ -459,22 +512,34 @@ total_separate_events = <span class="k">int</span>(
 <p>Each checklist orders a site's addresses with a greedy nearest-street walk. Starting at the demolition site, visit the closest street, then the closest remaining street from wherever you now stand, and so on until every street is ranked, with house numbers sorted within each street.</p>
 <p>Finding the closest street means comparing straight-line distances between street centroids. The Euclidean distance between two points is:</p>
 <p class="formula">d = &radic;<span class="radicand">(x&#8322; &minus; x&#8321;)&sup2; + (y&#8322; &minus; y&#8321;)&sup2;</span></p>
-<p>Only the comparison matters here: which street is nearest, not how many meters away it sits. The square root is a monotonically increasing function, so for any two non-negative numbers <em>a</em> and <em>b</em>, the inequality <em>a</em> &lt; <em>b</em> holds exactly when &radic;<em>a</em> &lt; &radic;<em>b</em>. Ranking the streets by the value inside the root therefore produces the identical order as ranking them by the true distance. The code compares those squared distances and never calls the root at all:</p>
+<p>Only the comparison matters here. The walk needs to know which street is nearest, and never uses the distance itself. The square root is a monotonically increasing function, so for any two non-negative numbers <em>a</em> and <em>b</em>, the inequality <em>a</em> &lt; <em>b</em> holds exactly when &radic;<em>a</em> &lt; &radic;<em>b</em>. Ranking the streets by the value inside the root therefore produces the identical order as ranking them by the true distance. The code compares those squared distances and never calls the root at all:</p>
 <pre><code>nearest = <span class="k">min</span>(
     remaining,
     key=<span class="k">lambda</span> s: (street_centroid.loc[s, <span class="s">"_x"</span>] - cx) ** <span class="k">2</span>
     + (street_centroid.loc[s, <span class="s">"_y"</span>] - cy) ** <span class="k">2</span>,
 )</code></pre>
-<p>On its own the skipped square root saves almost nothing. It reflects a habit that runs through the tool: work out the quantity the result actually depends on, and compute only that.</p>
+<p>On its own the skipped square root saves almost nothing. It reflects a habit that runs through the tool. Work out the quantity the result actually depends on, and compute only that.</p>
 
 <h2 class="section" id="mapeng">The Map's Invisible Engineering</h2>
 <p>The interactive map is a single self-contained HTML file built with <code>Folium</code> on <code>Leaflet.js</code>, extended with custom JavaScript for the operational controls. Some of its engineering is invisible by design:</p>
 <ul>
   <li>The address search is powered by a fully transparent layer that exists only to be searched, so search covers every notification parcel, demolition site, and field review flag without adding a visible layer to the map.</li>
   <li>A match flies the map to the found parcel and outlines it, rather than dropping a pin that would linger after the next search. The outline clears on the following search, on collapse of the search box, or on return to the home view.</li>
-  <li>Parcel geometry is simplified before rendering, trimming vertices the eye cannot see at map scale, which keeps a 1,636-parcel map fast in a browser.</li>
   <li>Address labels mount and unmount based on zoom level, so the zoomed-out view shows numbered site badges and the zoomed-in view shows full addresses.</li>
+  <li>Parcel geometry is simplified before rendering, trimming vertices the eye cannot see at map scale, which keeps a 1,636-parcel map fast in a browser.</li>
+  <li>Crews work from phones, so the legend and controls adapt to a narrow screen. Below roughly 700 pixels wide the legend collapses behind a single tap and the buttons shrink, which clears the overlap the two had at that width, and parcel details wrap inside their box instead of running off the edge. It runs on CSS alone, with a hidden checkbox holding the open state, so it responds to a window resize rather than to whatever the screen happened to be when the page loaded.</li>
+</ul>
+
+<img class="appshot" style="max-width:300px;display:block;margin:20px auto 6px;" src="demo_files/phone-map.jpg" alt="The notification map on a phone, with the legend collapsed behind a single tap">
+<p class="mapnote" style="text-align:center;">The same map on a phone. One tap opens the legend.</p>
+
+<p>The collapse is one CSS rule. A hidden checkbox holds the state, and the legend body reacts to it, which means the behaviour survives in any context where scripts are blocked:</p>
+<pre><code>.legend-toggle-input:checked ~ .legend-body { display: block; }</code></pre>
+
+<ul>
   <li>Every custom control runs inside the page's load event, because the map object the controls reference does not exist until the generated page finishes loading. Violating that ordering renders a blank map, a constraint discovered by debugging and documented in the code for the next person.</li>
+  <li>The downloaded file works with no internet. Map files normally pull their libraries from the web every time they open, which means a dead file on a job site with no signal or a network that blocks outside scripts. This one carries its own copy instead, and the unused libraries the generator threw in were dropped. Street tiles are the one thing still fetched live, so offline the parcels, buffers, labels, and search all work over a blank background. This applies to the downloaded file. A published link is fetched from the web and needs a connection.</li>
+  <li>The city records some buildings as address ranges, so a parcel the client listed as 4615 Labadie Avenue appears in the city's data as 4613-5 LABADIE AV. A crew searching the address printed on their own checklist would have found nothing for three of the thirty sites. Both forms are now indexed against the same parcel, so either one finds it. The defect was invisible to the tests, which checked that search worked rather than that it worked for the address a person would actually type.</li>
 </ul>
 
 <h2 class="section" id="production">Production Details</h2>
@@ -487,18 +552,61 @@ total_separate_events = <span class="k">int</span>(
   <li><strong>One malformed row cannot sink a batch.</strong> A site whose address will not parse, such as a stray header row read as data, is recorded as unmatched in the match report rather than halting the run.</li>
 </ul>
 
+<h2 class="section" id="keys">Publishing Without Handing Out Keys</h2>
+<p>The web app can publish on the operator's hosting account, which means it holds a credential that costs real money to misuse. Three rules keep that safe.</p>
+<ul>
+  <li><strong>The publishing credential never lands anywhere it could leak.</strong> The token is sent to Netlify to deploy the map and nowhere else. It is never written to disk, never saved beside the results, never recorded in the application's logs, and never included in an error message, and a test asserts each of those. The app is equally explicit about what it cannot promise, since a token typed into any web form also passes through the framework and the host, neither of which this project controls.</li>
+  <li><strong>The expensive misconfiguration refuses to run.</strong> Storing a publishing token without also setting a password would let any visitor spend the account's monthly allowance. Code cannot reliably tell a private local run from a public deployment, so rather than guess, that combination is treated as unsafe. Publishing disables itself and names the missing setting. Publishing stays off until someone deliberately sets both values, so forgetting one cannot cost money.</li>
+  <li><strong>A publishing failure never costs the analysis.</strong> A missing token stops the run before any work begins rather than after it. A failure during publishing still writes every local deliverable and exits with an error code, so a network problem costs the link and nothing else.</li>
+</ul>
+<p>The middle rule is three lines of code. Those three return values are the three ways the app can behave:</p>
+<pre><code><span class="k">def</span> publish_mode(token, password):
+    <span class="k">if</span> <span class="k">not</span> token:
+        <span class="k">return</span> <span class="s">"visitor"</span>   <span class="c"># publish with your own account</span>
+    <span class="k">if</span> password:
+        <span class="k">return</span> <span class="s">"shared"</span>    <span class="c"># the password unlocks the operator's account</span>
+    <span class="k">return</span> <span class="s">"unsafe"</span>        <span class="c"># a token with no password never publishes</span></code></pre>
+<table>
+  <thead><tr><th>What the operator set up</th><th>What a visitor can do</th><th>Whose hosting allowance pays</th></tr></thead>
+  <tbody>
+    <tr><td>Nothing</td><td>Publish using their own free hosting account</td><td>The visitor's</td></tr>
+    <tr><td>An account credential and a password</td><td>Everything above, plus publish on the operator's account with the password</td><td>The operator's, for people given the password</td></tr>
+    <tr><td>A credential with no password</td><td>Nothing. Publishing turns itself off and explains why</td><td>Nobody</td></tr>
+  </tbody>
+</table>
+<p>The middle row is how the client publishes without ever creating an account. The bottom row is the case that would quietly cost money, so it is the one the code refuses to run.</p>
+
+<h2 class="section" id="tests">How It Is Tested</h2>
+<p>The test suite runs over 100 tests, from identifier normalization and column detection to a grid of synthetic squares where the correct neighbors and distances are computable by hand, so the geometry math is verified against known answers rather than against itself. The tests need no network and no city data, finish in about a second, and run on every push through GitHub Actions alongside <code>ruff</code> linting configured beyond its defaults, adding import-order, bug-pattern, and modern-syntax checks.</p>
+
+<h2 class="section" id="external">Testing Against a Service You Do Not Control</h2>
+<p>Publishing hands work to someone else's servers, and that changes what a test can prove. Three kinds of check were used, each answering something the one before it could not.</p>
+<table>
+  <thead><tr><th>What was tested</th><th>What it proved</th><th>What it could not</th></tr></thead>
+  <tbody>
+    <tr><td>Mocked tests</td><td>The code did what its author intended</td><td>Whether that intention matched the real service</td></tr>
+    <tr><td>A free draft deploy</td><td>The real service accepted the requests</td><td>How a published site behaves for the public</td></tr>
+    <tr><td>The first real publish</td><td>The link works for the people it was made for</td><td>&mdash;</td></tr>
+  </tbody>
+</table>
+<p>Mocked tests swap the hosting service for a stand-in that hands back whatever reply the test asks for, so nothing leaves the machine. That makes them the right tool for questions about this tool's own behaviour. Does the error wording make sense to someone who has never heard of the host. Does publishing actually disable itself when a password is missing. Does a failed publish still write every local file. They cost nothing and touch no network, so they run on every push. What they cannot do is notice when the code is confidently wrong about what the real service expects.</p>
+<p>Which is what happened. The first version uploaded the map as a zip archive, using a flag a support forum described as marking the deploy a draft. Every test passed. The first draft deploy, still a free check rather than anything published, came back reporting success and served the map as unformatted text, because that flag is not supported for zip uploads. The documented method works differently, sending a list of file paths with a fingerprint of each file rather than an archive. Rebuilding on it made the draft render the map properly, so the whole pipeline could be checked while still spending nothing.</p>
+<p>One problem could not surface that way. The first real publish succeeded, but checking the link showed the map was not public. The only apparent route to making it public was a button in the hosting dashboard, which would have meant a manual visit after every single run, turning a tool meant to save effort into one that adds a step. The cause is that this host now makes new projects private by default, and draft URLs require a sign-in regardless, so nothing before a real publish could have shown it. The same setting turned out to be reachable through the API, so it is now applied the moment a site is created, and the fix was confirmed by opening the link with no account at all.</p>
+
 <h2 class="section" id="validation">Validating the Refactor</h2>
 <p>The generalized tool was validated against the original engagement's delivered files. All four headline figures reproduce exactly: 1,636 addresses, 2,598 and 3,948 hangers, and 134 field review parcels. The remaining row-level differences were investigated individually, and each traced to a deliberate improvement rather than a defect. The official land use vocabulary replaced interpreted labels. The field review reasons became specific instead of generic.</p>
-<p>These are the delivered engagement's figures. Because city parcel records change over time, rerunning against a refreshed cache shifts the counts slightly. A refresh to July 2026 data, for example, returns 1,635 addresses in place of 1,636. The committed cache is the permanent copy; a refresh through the app updates only its running container until that container restarts.</p>
-<p>One difference took a closer look. A parcel flagged for review can sit near several demolition sites at once, and the field review list files it under a single representative site. The original script chose that site by sorting the parcel IDs as text, an incidental effect of alphabetical ordering. The rebuild makes the choice deliberate, filing each parcel under the first matching site in the client's own list. Both versions flag the same parcels and record the same full set of nearby sites for each; only the single site shown at the head of the row changed.</p>
-<p>The test suite runs 44 tests, from identifier normalization and column detection to a grid of synthetic squares where the correct neighbors and distances are computable by hand, so the geometry math is verified against known answers rather than against itself. The tests need no network and no city data, finish in under a second, and run on every push through GitHub Actions alongside <code>ruff</code> linting configured beyond its defaults, adding import-order, bug-pattern, and modern-syntax checks.</p>
+<p>These are the delivered engagement's figures, produced from city parcel data published 2026-07-22. Parcel records change over time, so a run against refreshed data shifts the counts slightly. Data published 2026-08-05 returns 1,635 addresses in place of 1,636. Every deliverable now records the date the city published the data behind it, read from the server rather than from when the download happened, so any package can be dated on its own. A refresh through the app updates only its running container until that container restarts.</p>
+<p>Refreshing the committed cache creates a problem for anyone changing the code later. The four headline figures come from one particular vintage of city data. Once the cache moves on, a run that returns different numbers could mean the city's records changed, or could mean an edit broke something, and the output alone cannot tell those apart. The exact parcel data behind the validated run is committed for that reason, with a script that runs the current code against it and checks that the four figures still come out, so the check can be run by anyone rather than taken on trust.</p>
+<pre><code>python case-study/validation/check_headline_numbers.py</code></pre>
+<p>That check runs on every push through GitHub Actions, so an edit that moves any of the four figures fails the build rather than going unnoticed.</p>
+<p>One row-level difference turned up during the refactor and was worth chasing down. A parcel flagged for review can sit near several demolition sites at once, and the field review list files it under a single representative site. The original script chose that site by sorting the parcel IDs as text, an incidental effect of alphabetical ordering. The rebuild makes the choice deliberate, filing each parcel under the first matching site in the client's own list. Both versions flag the same parcels and record the same full set of nearby sites for each. Only the single site shown at the head of the row changed.</p>
 
 <h2 class="section" id="future">Future Work</h2>
 <ul>
   <li><strong>Grouped checklists and map.</strong> Grouping already recomputes the hanger total for a declared schedule. Extending it to merge those sites' walking checklists and map layers into one combined pass is the remaining step.</li>
   <li><strong>Route optimization.</strong> The walking checklists use a nearest-street heuristic. A true routing pass over the street network would shorten crew time further.</li>
   <li><strong>Address-point data.</strong> A second city dataset locating individual buildings would refine structure detection on the parcels the assessor's records leave ambiguous.</li>
-  <li><strong>A multi-city adapter layer.</strong> The analysis is general; the data sources are St. Louis specific. Per-jurisdiction configuration for columns, coordinate systems, and download endpoints would carry the tool to other cities.</li>
+  <li><strong>A multi-city adapter layer.</strong> The analysis is general, but the data sources are St. Louis specific. Per-jurisdiction configuration for columns, coordinate systems, and download endpoints would carry the tool to other cities.</li>
 </ul>
 
 <footer>
